@@ -1,0 +1,18 @@
+CREATE TABLE sessions (
+sesId SERIAL PRIMARY KEY,
+Date DATE NOT NULL,
+STATUS VARCHAR NOT NULL);
+
+INSERT INTO sessions(date, status) VALUES ('2023-09-23', 'canceled');
+
+INSERT INTO sessions(date, status) VALUES ('2023-09-24', 'booked');
+
+INSERT INTO sessions(date, status) VALUES ('2023-09-25', 'available');
+
+INSERT INTO sessions(date, status) VALUES ('2023-09-27', 'canceled');
+
+INSERT INTO sessions(date, status) VALUES ('2023-09-28', 'available');
+
+INSERT INTO sessions(date, status) VALUES ('2023-09-29', 'booked');
+
+INSERT INTO sessions(date, status) VALUES ('2023-10-29', 'available');
