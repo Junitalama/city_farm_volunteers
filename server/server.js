@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
 // NEW - replace custom middleware with the cors() middleware
-app.use(cors());
+app.use(cors({ AllowedHeaders: ["Content-Type", "Authorization"] }));
 app.use(bodyParser.urlencoded({ extended: false }));
 const { Pool } = require("pg");
 const db = new Pool({
