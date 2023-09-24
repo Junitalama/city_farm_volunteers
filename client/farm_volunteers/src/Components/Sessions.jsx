@@ -14,12 +14,14 @@ function Sessions(){
         .catch((error) => console.error("error"))
     },[]);
     return (
-        <div className="card">
+        <div >
            {session.map((s) => {
             return (
               <li key={s.ses_id}>
-                <p>Date :{s.date}</p>
-                <button className={s.status}>{s.status} </button>
+                <div className="card">
+                  <p>Date :{s.date}</p>
+                  <button className={s.status}>{s.status} </button>
+                </div>
               </li>
             );})}
         </div>

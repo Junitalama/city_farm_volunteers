@@ -26,6 +26,10 @@
   color: white;
 }
 
+h1{
+  background-color: #282c34;
+  color: white;
+}
 .App-link {
   color: #61dafb;
 }
@@ -38,19 +42,18 @@
     transform: rotate(360deg);
   }
 }
-.canceled{
+.canceled {
   background-color: red;
 }
 
-.booked{
+.booked {
   background-color: green;
-
 }
 
-.available{
+.available {
   background-color: orange;
 }
-.react-calendar { 
+.react-calendar {
   width: 700px;
   max-width: 100%;
   background-color: rgb(131, 125, 125);
@@ -59,15 +62,15 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
- }
+}
 
- .react-calendar__navigation button {
+.react-calendar__navigation button {
   color: white;
   min-width: 44px;
-  background:none;
+  background: none;
   font-size: 16px;
   margin-top: 8px;
- }
+}
 
 .react-calendar--doubleView {
   width: 700px;
@@ -181,10 +184,22 @@
   background-color: #e6e6e6;
 }
 
-.calendar-container{width:50em;
+.calendar-container {
+  width: 50em;
   margin-left: auto;
   margin-right: auto;
-
 }
 
-
+.card{display: flex;
+  flex-direction: row;
+  gap: 3em;
+  width:20em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: gray;
+}
+li{
+  list-style: none;
+  margin-bottom: 2em;
+  margin-top: 3em;
+}
