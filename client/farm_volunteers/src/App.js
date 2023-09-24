@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import Sessions from "./Components/Sessions";
+import "./App.css";
+
+
+import { useState } from "react";
+import Calendar from "react-calendar";
 
 function App() {
+  const [date, setDate] = useState(new Date());
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1 className="header">City-Farm</h1>
+      <h2>Hello volunteers, please book your slot here</h2>
+      <div className="calendar-container">
+        <Calendar onChange={setDate} value={date} />
+      </div>
+      <div className="text-center">Selected date: {date.toDateString()}</div>
+      <Sessions />
     </div>
   );
 }
