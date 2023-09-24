@@ -1,7 +1,6 @@
 import Sessions from "./Components/Sessions";
 import "./App.css";
 
-
 import { useState } from "react";
 import Calendar from "react-calendar";
 
