@@ -3,6 +3,15 @@ ses_id SERIAL PRIMARY KEY,
 Date DATE NOT NULL,
 STATUS VARCHAR NOT NULL);
 
+CREATE TABLE volunteers(
+vol_id SERIAL PRIMARY KEY,
+Name VARCHAR(20) NOT NULL,
+Email VARCHAR(50),
+Phone VARCHAR(15),
+Slot VARCHAR NOT NULL,
+Date DATE NOT NULL
+);
+
 INSERT INTO sessions(date, status) VALUES ('2023-09-23', 'canceled');
 
 INSERT INTO sessions(date, status) VALUES ('2023-09-24', 'booked');
@@ -16,3 +25,21 @@ INSERT INTO sessions(date, status) VALUES ('2023-09-28', 'available');
 INSERT INTO sessions(date, status) VALUES ('2023-09-29', 'booked');
 
 INSERT INTO sessions(date, status) VALUES ('2023-10-29', 'available');
+
+INSERT INTO volunteers(name, email,phone,slot,date) VALUES ( 'Afsha Hossain', '07562221333','afsha@yahoo.com','booked','2023-09-24');
+
+INSERT INTO volunteers(name, email,phone,slot,date) VALUES ( 'Anu Thapaliya', 'anu@yahoo.com','07562221377','canceled','2023-09-23');
+
+INSERT INTO volunteers(name, email,phone,slot,date) VALUES ( 'saqib', 'saqib@yahoo.com','07562221675','available','2023-09-25');
+
+INSERT INTO volunteers(name, email,phone,slot,date) VALUES ( 'paulina', 'paulain@gmail.com','07562221689','booked','2023-09-29');
+
+INSERT INTO volunteers(name, email,phone,slot,date) VALUES ( 'Elena Barker', 'elena@gmail.com','07562221678','available','2023-10-29');
+
+INSERT INTO volunteers(name, email,phone,slot,date) VALUES ( 'Shadi Fakri', 'shadi@gmail.com','07562227890','booked','2023-10-02');
+
+INSERT INTO volunteers(name, email,phone,slot,date) VALUES ( 'Beko Meigg', 'beko@yahoo.com','07562227875','canceled','2023-09-27');
+
+INSERT INTO volunteers(name, email,phone,slot,date) VALUES ( 'saliha popal', 'saliha@yahoo.com','0756226789','booked','2023-10-03');
+
+INSERT INTO volunteers(name, email,phone,slot,date) VALUES ( 'Bekir', 'bekir@yahoo.com','0756227868','booked','2023-10-06');
