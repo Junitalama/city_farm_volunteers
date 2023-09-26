@@ -1,5 +1,6 @@
 import Sessions from "./Components/Sessions";
 import "./App.css";
+import Search from "./Components/Search";
 
 import { useState } from "react";
 import Calendar from "react-calendar";
@@ -16,6 +17,7 @@ function App() {
       </div>
       <div className="text-center">Selected date: {date.toDateString()}</div>
       <Sessions />
+      <Search />
     </div>
   );
 }
