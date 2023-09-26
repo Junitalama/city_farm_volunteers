@@ -9,7 +9,7 @@ const [date, setDate] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name,email,phone && date) {
+    if (name && email && phone && date) {
       onAdd({ name, email,phone,date });
       setName("");
       setEmail("");
@@ -53,7 +53,7 @@ const [date, setDate] = useState("");
           onChange={(e) => setDate(e.target.value)}
         />
       </div>
-      <button type="submit">Add </button>
+      <button type="submit">Book your slot </button>
     </form>
   );
 };
