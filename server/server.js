@@ -5,7 +5,6 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
-
 app.use(cors({ AllowedHeaders: ["Content-Type", "Authorization"] }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -33,4 +32,15 @@ app.get("/volunteers/:slot", (req, res) => {
     .then((result) => res.json(result.rows))
     .catch((err) => res.json(err));
 });
+
+app.post("/", (req, res) => {
+  const { name, email, phone, slot, date } = req.body;
+  db.query(
+    "insert into volunteers (name, email, phone, slot, date) values ($1, $2, $3, $4, $5) returning vol_id",
+    [name, email, phone, slot, date]
+  )
+    .then((result) => res.status(200).json(result.rows[0]))
+    .catch((err) => res.send(err));
+});
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
