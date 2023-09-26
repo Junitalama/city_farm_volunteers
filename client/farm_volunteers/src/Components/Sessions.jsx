@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Form from "./Form";
 const Api = "https://city-farms-db.onrender.com";
 
 function Sessions() {
@@ -13,6 +13,24 @@ function Sessions() {
       })
       .catch((error) => console.error("error"));
   }, []);
+
+    const handleAdd = (newSession) => {
+      fetch(Api, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newSession),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setSession((s) => [
+            ...s,
+            { ...newSession, id: data.vol_id},
+          ]);
+        })
+        .catch((error) => console.error("Error", error));
+      };
   return (
     <div>
       {session.map((s) => {
@@ -25,6 +43,7 @@ function Sessions() {
           </li>
         );
       })}
+      <Form onAdd={handleAdd} />
     </div>
   );
 }

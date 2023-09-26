@@ -1,12 +1,17 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState("");
   const [slots, setSlots] = useState([]);
+  const[filteredSlot, setFilteredSlot] =useState([]);
 
   function handleSearchInput(e) {
     setSearchInput(e.target.value);
+
   }
+
+  
   function handleSubmit(e) {
     e.preventDefault();
     fetch("https://city-farms-db.onrender.com/volunteers/:slot")
@@ -20,6 +25,10 @@ const Search = () => {
        setSlots(data);
       });
   }
+  useEffect(() => {
+    const filtered = slots.filter((p) => p.slot.includes(searchInput));
+    setFilteredSlot(filtered);
+  }, [searchInput, slots]);
 
   return (
     <div className="search">
@@ -39,7 +48,7 @@ const Search = () => {
                 value={searchInput}
                 onChange={handleSearchInput}
                 className="form-control"
-                placeholder="available/booked/canceled"
+                placeholder=""
               />
               <button className="btn btn-primary" type="submit">
                 SUBMIT
@@ -57,7 +66,7 @@ const Search = () => {
               </tr>
             </thead>
             <tbody>
-              {slots.map((s) => {
+              {filteredSlot.map((s) => {
                 return(
                 <tr>
                   <td>{s.name}</td>
