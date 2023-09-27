@@ -1,7 +1,7 @@
 import Sessions from "./Components/Sessions";
 import "./App.css";
 import Search from "./Components/Search";
-import AddSlot from "./Components/AddSlot";
+//import AddSlot from "./Components/AddSlot";
 
 import { useState } from "react";
 import Calendar from "react-calendar";
@@ -19,7 +19,7 @@ function App() {
       <div className="text-center">Selected date: {date.toDateString()}</div>
       <Sessions />
       <Search />
-      <AddSlot />
+   
     </div>
   );
 }

@@ -6,10 +6,10 @@ const Search = () => {
   const [slots, setSlots] = useState([]);
   
 
-  function handleSearchInput(e) {
-    setSearchInput(e.target.value);
+  function handleSearchInput() {
+  
     
-      fetch("https://city-farms-db.onrender.com/volunteers/:slot")
+      fetch(`https://city-farms-db.onrender.com/search?term = ${searchInput}`)
         .then((res) => {
           if (!res.ok) {
             throw Error("Something went wrong");
@@ -38,41 +38,30 @@ const Search = () => {
                 type="text"
                 id="customerName"
                 value={searchInput}
-                onChange={handleSearchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
                 className="form-control"
                 placeholder=""
               />
-              <button className="btn btn-primary" type="submit">
+              <button onClick = {handleSearchInput} className="btn btn-primary" type="submit">
                 SUBMIT
               </button>
             </div>
-          </form>
-          <table className="table my-5">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>phone</th>
-                <th>slot</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {slots.map((s) => {
-                return (
-                  <tr>
-                    <td>{s.name}</td>
-                    <td>{s.phone}</td>
-                    <td>{s.email}</td>
-                    <td>{s.slot}</td>
-                    <td>{s.date}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </div>
+         <ul>
+              {slots.map((s) => (
+               <li key ={s.vol_id}>
+                  {s.name}
+                    {s.phone}
+                    {s.email}
+                    {s.slot}
+                    {s.date}
+                  </li>
+                
+              ))}
+            </ul>
+        
+      </form>
+     </div>
+     </div>
     </div>
   );
 };
