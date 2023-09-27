@@ -9,7 +9,7 @@ app.use(cors({ AllowedHeaders: ["Content-Type", "Authorization"] }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const { Pool } = require("pg");
-const { default: Search } = require("../client/farm_volunteers/src/Components/Search");
+
 const db = new Pool({
   connectionString: process.env.DB_URL,
   ssl: { rejectUnauthorized: false },
