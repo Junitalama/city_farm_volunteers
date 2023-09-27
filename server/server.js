@@ -26,7 +26,7 @@ app.get("/volunteers", (req, res) => {
     .catch((err) => res.send(err));
 });
 
-app.get("/search", (req, res) => {
+app.get("/volunteers/search", (req, res) => {
   let slotLooked = req.query.term;
   db.query("select * from volunteers where slot ilike $1", [`%${slotLooked}%`])
     .then((result) => res.json(result.rows))

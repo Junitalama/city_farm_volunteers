@@ -9,7 +9,7 @@ const Search = () => {
   function handleSearchInput() {
   
     
-      fetch(`https://city-farms-db.onrender.com/search?term = ${searchInput}`)
+      fetch(`https://city-farms-db.onrender.com/volunteers/search?term = ${searchInput}`)
         .then((res) => {
           if (!res.ok) {
             throw Error("Something went wrong");
