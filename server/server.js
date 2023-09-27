@@ -9,6 +9,7 @@ app.use(cors({ AllowedHeaders: ["Content-Type", "Authorization"] }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const { Pool } = require("pg");
+const { default: Search } = require("../client/farm_volunteers/src/Components/Search");
 const db = new Pool({
   connectionString: process.env.DB_URL,
   ssl: { rejectUnauthorized: false },
@@ -27,8 +28,8 @@ app.get("/volunteers", (req, res) => {
 });
 
 app.get("/volunteers/search", (req, res) => {
-  let slotLooked = req.query.term;
-  db.query("select * from volunteers where slot ilike $1", [`%${slotLooked}%`])
+  let searchInput = req.query.term;
+  db.query("select * from volunteers where slot ilike $1", [`%${searchInput}%`])
     .then((result) => res.json(result.rows))
     .catch((err) => res.json(err));
 });

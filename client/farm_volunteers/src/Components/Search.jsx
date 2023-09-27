@@ -42,16 +42,16 @@ const Search = () => {
                 className="form-control"
                 placeholder=""
               />
-              <button onClick = {handleSearchInput} className="btn btn-primary" type="submit">
-                SUBMIT
+              <button onClick = {handleSearchInput} className="btn btn-primary" >
+                search
               </button>
             </div>
          <ul>
               {slots.map((s) => (
                <li key ={s.vol_id}>
                   {s.name}
-                    {s.phone}
                     {s.email}
+                    {s.phone}
                     {s.slot}
                     {s.date}
                   </li>
