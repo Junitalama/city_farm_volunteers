@@ -26,7 +26,7 @@
   color: white;
 }
 
-h1{
+h1 {
   background-color: #282c34;
   color: white;
 }
@@ -190,16 +190,46 @@ h1{
   margin-right: auto;
 }
 
-.card{display: flex;
+.card {
+  display: flex;
   flex-direction: row;
   gap: 3em;
-  width:20em;
+  width: 20em;
   margin-left: auto;
   margin-right: auto;
-  background-color:gray;
+  background-color: gray;
 }
-li{
+li {
   list-style: none;
   margin-bottom: 2em;
   margin-top: 3em;
+}
+.card_2 {
+  display: flex;
+  flex-direction: column;
+  background-color: gray;
+  color: white;
+  width: 30em;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+  border: 2px solid blue;
+}
+
+h2,
+h3 {
+  margin-top: 2em;
+  background-color: beige;
+}
+
+.add {
+  font-size: 2em;
+  background-color: beige;
+}
+.btn {
+  margin-top: 1.5em;
+}
+
+input {
+  width: 30em;
 }

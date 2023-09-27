@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Form from "./Form";
+
 const Api = "https://city-farms-db.onrender.com";
 
 function Sessions() {
@@ -14,10 +14,9 @@ function Sessions() {
       .catch((error) => console.error("error"));
   }, []);
 
-    
-            
   return (
     <div>
+      <h3>see all our available, cancelled or booked sessions here:</h3>
       {session.map((s) => {
         return (
           <li key={s.ses_id}>
@@ -28,7 +27,6 @@ function Sessions() {
           </li>
         );
       })}
-      
     </div>
   );
 }

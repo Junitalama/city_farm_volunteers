@@ -1,38 +1,27 @@
 import React, { useState } from "react";
 
 const Form = ({ onAdd }) => {
-const [name, setName] = useState("");
-const [email, setEmail] = useState("");
-const [phone, setPhone] = useState("");
-const [date, setDate] = useState("");
-    
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
-  const newSlot = {
-    name,
-    email,
-    phone,
-    date
+  const [date, setDate] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name && email && phone && date) {
+      onAdd({ name, email, phone, date });
+      setName("");
+      setEmail("");
+      setPhone("");
+
+      setDate("");
+    }
   };
 
-      fetch("https://city-farms-db.onrender.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newSlot),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-            onAdd(data);
-            setName("");
-            setEmail("");
-            setPhone("");
-            setDate("");
-        })
-      
   return (
-    <form className="form">
-      <p className="add">Add your videos </p>
+    <form className="form" onSubmit={handleSubmit}>
+      <p className="add">Fill your details to book a slot </p>
       <div>
         <input
           type="text"
@@ -69,7 +58,9 @@ const [date, setDate] = useState("");
           required
         />
       </div>
-      <button type="submit">Book your slot </button>
+      <button className="btn btn-primary" type="submit">
+        Book your slot
+      </button>
     </form>
   );
 };
