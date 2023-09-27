@@ -1,34 +1,26 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
+
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState("");
   const [slots, setSlots] = useState([]);
-  const[filteredSlot, setFilteredSlot] =useState([]);
+  
 
   function handleSearchInput(e) {
     setSearchInput(e.target.value);
-
+    
+      fetch("https://city-farms-db.onrender.com/volunteers/:slot")
+        .then((res) => {
+          if (!res.ok) {
+            throw Error("Something went wrong");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setSlots(data);
+        });
   }
-
-  
-  function handleSubmit(e) {
-    e.preventDefault();
-    fetch("https://city-farms-db.onrender.com/volunteers/:slot")
-      .then((res) => {
-        if (!res.ok) {
-          throw Error("Something went wrong");
-        }
-        return res.json();
-      })
-      .then((data) => {
-       setSlots(data);
-      });
-  }
-  useEffect(() => {
-    const filtered = slots.filter((p) => p.slot.includes(searchInput));
-    setFilteredSlot(filtered);
-  }, [searchInput, slots]);
+ 
 
   return (
     <div className="search">
@@ -39,7 +31,7 @@ const Search = () => {
       </div>
       <div className="row search-wrapper">
         <div className="col">
-          <form className="form-group search-box" onSubmit={handleSubmit}>
+          <form className="form-group search-box">
             <label htmlFor="customerName"></label>
             <div className="search-row">
               <input
@@ -58,24 +50,25 @@ const Search = () => {
           <table className="table my-5">
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Volunteer</th>
+                <th>Name</th>
                 <th>Email</th>
                 <th>phone</th>
                 <th>slot</th>
+                <th>Date</th>
               </tr>
             </thead>
             <tbody>
-              {filteredSlot.map((s) => {
-                return(
-                <tr>
-                  <td>{s.name}</td>
-                  <td>{s.phone}</td>
-                  <td>{s.email}</td>
-                  <td>{s.slot}</td>
-                  <td>{s.date}</td>
-                </tr>
-)})}
+              {slots.map((s) => {
+                return (
+                  <tr>
+                    <td>{s.name}</td>
+                    <td>{s.phone}</td>
+                    <td>{s.email}</td>
+                    <td>{s.slot}</td>
+                    <td>{s.date}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

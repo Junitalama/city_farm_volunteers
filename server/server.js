@@ -33,7 +33,7 @@ app.get("/volunteers/:slot", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-app.post("/", (req, res) => {
+app.post("/volunteers", (req, res) => {
   const { name, email, phone, slot, date } = req.body;
   db.query(
     "insert into volunteers (name, email, phone, slot, date) values ($1, $2, $3, $4, $5) returning vol_id",
