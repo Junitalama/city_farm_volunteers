@@ -37,4 +37,13 @@ app.post("/volunteers", (req, res) => {
     .catch((err) => res.send(err));
 });
 
+
+app.get("/volunteers/:slot", (req, res) => {
+  let slotLooked = req.params.slot;
+
+  db.query("select * from volunteers where slot like $1 || '%'", [slotLooked])
+
+    .then((result) => res.json(result.rows))
+    .catch((err) => res.json(err));
+});
 app.listen(port, () => console.log(`Listening on port ${port}`));

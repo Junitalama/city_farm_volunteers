@@ -3,6 +3,7 @@ import "./App.css";
 import Volunteers from "./Components/Volunteers";
 import { useState } from "react";
 import Calendar from "react-calendar";
+import SearchBar from "./Components/Search";
 
 function App() {
   const [date, setDate] = useState(new Date());
@@ -17,6 +18,7 @@ function App() {
       <div className="text-center">Selected date: {date.toDateString()}</div>
       <Sessions />
       <Volunteers />
+      <SearchBar />
     </div>
   );
 }
