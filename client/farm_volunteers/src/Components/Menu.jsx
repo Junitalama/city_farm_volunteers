@@ -46,9 +46,6 @@ export default function PositionedMenu() {
           <a href="#form">Book a session</a>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <a href="#profile">Volunteers' profile</a>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
           <a href="#contact">Join us</a>
         </MenuItem>
       </Menu>

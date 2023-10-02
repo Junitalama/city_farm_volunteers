@@ -18,7 +18,7 @@ function Sessions() {
 
   return (
     <div>
-      <Typography variant="h5" gutterBottom>
+      <Typography variant="h5"  gutterBottom>
         Sessions
       </Typography>
       <div className="session">
