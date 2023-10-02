@@ -61,7 +61,7 @@ const Form = ({ onAdd }) => {
         />
       </div>
       <button onClick={handleClick} className="btn btn-primary" type="submit">
-        Book your slot
+        Book your session
       </button>
     </form>
   );

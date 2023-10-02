@@ -21,11 +21,12 @@ export default function ImgMediaCard() {
         </Typography>
         <Typography variant="body2" color="text.secondary">
           City Farm is an 89 acre working city farm on the border of the London
-          Boroughs of Greenwich and Bexley. As a charity Woodlands Farm is run
-          as a conservation and education project, which provides an opportunity
-          to find out about farming life and farm animals as well as a chance to
+          Boroughs of Greenwich and Bexley. As a charity City Farm is run as a
+          conservation and education project, which provides an opportunity to
+          find out about farming life and farm animals as well as a chance to
           experience the countryside within London. You can see native bird
-          species, butterflies, wild flowers and ancient woodlands.
+          species, butterflies, wild flowers and ancient woodlands. If you want
+          to volunteer with us, please contact us.
         </Typography>
       </CardContent>
       <CardActions>

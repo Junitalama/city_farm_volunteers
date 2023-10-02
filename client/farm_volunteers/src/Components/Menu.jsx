@@ -22,7 +22,7 @@ export default function PositionedMenu() {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        Dashboard
+        Menu
       </Button>
       <Menu
         id="demo-positioned-menu"
