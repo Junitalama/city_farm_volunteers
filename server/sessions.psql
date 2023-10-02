@@ -8,9 +8,12 @@ vol_id SERIAL PRIMARY KEY,
 Name VARCHAR(20) NOT NULL,
 Email VARCHAR(50),
 Phone VARCHAR(15),
-Slot VARCHAR NOT NULL,
-Date DATE NOT NULL
+
 );
+
+CREATE TABLE bookings (
+booking_id INT PRIMARY KEY, ses_id INT REFERENCES sessions(ses_id) NOT NULL, vol_id INT REFERENCES volunteers (vol_id) NOT NULL);
+
 
 INSERT INTO sessions(date, status) VALUES ('2023-09-23', 'canceled');
 

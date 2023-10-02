@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import Typography from "@mui/material/Typography";
+
 const Api = "https://city-farms-db.onrender.com";
 
 function Sessions() {
@@ -16,17 +18,21 @@ function Sessions() {
 
   return (
     <div>
-      <h3>see all our available, cancelled or booked sessions here:</h3>
-      {session.map((s) => {
-        return (
-          <li key={s.ses_id}>
-            <div className="card">
-              <p>Date :{s.date}</p>
-              <button className={s.status}>{s.status} </button>
-            </div>
-          </li>
-        );
-      })}
+      <Typography variant="h5" gutterBottom>
+        Sessions
+      </Typography>
+      <div className="session">
+        {session.map((s) => {
+          return (
+            <li key={s.ses_id}>
+              <div className="card">
+                <p>Date :{s.date}</p>
+                <button className={s.status}>{s.status} </button>
+              </div>
+            </li>
+          );
+        })}
+      </div>
     </div>
   );
 }

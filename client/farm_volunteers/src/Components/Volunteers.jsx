@@ -36,19 +36,20 @@ function Volunteers() {
     <div>
       <Form onAdd={handleAdd} />
       <h2>volunteers profile</h2>
-      {volunteers.map((s) => {
-        return (
-          <li key={s.ses_id}>
-            <div className="card_2">
-              <p>Name :{s.name}</p>
-              <p>Email :{s.email}</p>
-              <p>Phone :{s.phone}</p>
-              <p>Slot :{s.slot}</p>
-              <p>Date :{s.date}</p>
-            </div>
-          </li>
-        );
-      })}
+      <div className="volunteers" id="profile">
+        {volunteers.map((s) => {
+          return (
+            <li key={s.ses_id}>
+              <div className="card_2">
+                <p>Name :{s.name}</p>
+                <p>Email :{s.email}</p>
+                <p>Phone :{s.phone}</p>
+                <p>Date:{s.date}</p>
+              </div>
+            </li>
+          );
+        })}
+      </div>
     </div>
   );
 }
