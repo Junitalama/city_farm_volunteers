@@ -1,24 +1,23 @@
 import Sessions from "./Components/Sessions";
 import "./App.css";
+import PositionedMenu from "./Components/Menu";
 import Volunteers from "./Components/Volunteers";
-import { useState } from "react";
-import Calendar from "react-calendar";
-import SearchBar from "./Components/Search";
+import ImgMediaCard from "./Components/Card";
+import Header from "./Components/Header";
+import React from "react";
+import Contact from "./Components/Contact";
+import Footer from "./Components/Footer";
 
 function App() {
-  const [date, setDate] = useState(new Date());
-
   return (
     <div className="app">
-      <h1 className="header">City-Farm</h1>
-      <h2>Hello volunteers, please book your slot here!!!</h2>
-      <div className="calendar-container">
-        <Calendar onChange={setDate} value={date} />
-      </div>
-      <div className="text-center">Selected date: {date.toDateString()}</div>
+      <Header />
+      <PositionedMenu />
+      <ImgMediaCard />
       <Sessions />
       <Volunteers />
-      <SearchBar />
+      <Contact />
+      <Footer />
     </div>
   );
 }

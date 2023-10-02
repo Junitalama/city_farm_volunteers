@@ -4,7 +4,6 @@ const Form = ({ onAdd }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-
   const [date, setDate] = useState("");
 
   const handleSubmit = (e) => {
@@ -18,10 +17,13 @@ const Form = ({ onAdd }) => {
       setDate("");
     }
   };
+  function handleClick() {
+    alert("You have booked a slot!");
+  }
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <p className="add">Fill your details to book a slot </p>
+    <form id="form" className="form" onSubmit={handleSubmit}>
+      <p className="add">Book a slot </p>
       <div>
         <input
           type="text"
@@ -58,7 +60,7 @@ const Form = ({ onAdd }) => {
           required
         />
       </div>
-      <button className="btn btn-primary" type="submit">
+      <button onClick={handleClick} className="btn btn-primary" type="submit">
         Book your slot
       </button>
     </form>
