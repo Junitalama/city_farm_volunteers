@@ -4,17 +4,6 @@
   color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .canceled {
   background-color: red;
 }
@@ -45,7 +34,7 @@ li {
   background-color: white;
   color: black;
   width: 15em;
-  border: 2px solid blue;
+  border: 1px solid blue;
 }
 
 h2,
@@ -94,4 +83,22 @@ a {
   font-size: 0.9rem;
   margin-top: 2em;
   border-top: 1px solid black;
+}
+
+@media only screen and (max-width: 480px) {
+  .volunteers {
+    grid-template-columns: 1fr;
+    width: 15em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .session {
+    flex-direction: column;
+    width: 10em;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  input {
+    width: 20em;
+  }
 }
