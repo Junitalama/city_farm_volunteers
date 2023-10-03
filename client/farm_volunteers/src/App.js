@@ -6,7 +6,6 @@ import PositionedMenu from "./Components/Menu";
 import Volunteers from "./Components/Volunteers";
 import ImgMediaCard from "./Components/Card";
 import Header from "./Components/Header";
-
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 
