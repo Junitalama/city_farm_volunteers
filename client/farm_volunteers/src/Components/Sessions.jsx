@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-
 import Typography from "@mui/material/Typography";
 
-const Api = "https://city-farms-db.onrender.com";
+
+const Api = "http://localhost:3000/manager";
 
 function Sessions() {
   const [session, setSession] = useState([]);
@@ -27,7 +27,8 @@ function Sessions() {
             <li key={s.ses_id}>
               <div className="card">
                 <p>Date :{s.date}</p>
-                <button className={s.status}>{s.status} </button>
+                <button className={s.morning}>{s.morning} </button>
+                <button className = {s.evening}>{s.evening}</button>
               </div>
             </li>
           );

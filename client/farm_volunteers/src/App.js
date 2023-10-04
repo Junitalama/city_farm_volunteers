@@ -1,13 +1,15 @@
 import React from "react";
 import "./App.css";
-import Sessions from "./Components/Sessions";
+
 import CalendarData from "./Components/Calendar";
 import PositionedMenu from "./Components/Menu";
 import Volunteers from "./Components/Volunteers";
 import ImgMediaCard from "./Components/Card";
 import Header from "./Components/Header";
+import Sessions from "./Components/Sessions"
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
+
 
 function App() {
   return (
@@ -17,8 +19,9 @@ function App() {
       <ImgMediaCard />
       <CalendarData />
       <Volunteers />
-      <Sessions />
+      <Sessions />   
       <Contact />
+      
       <Footer />
     </div>
   );
