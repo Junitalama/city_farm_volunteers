@@ -31,11 +31,20 @@ function Sessions() {
             <li key={s.ses_id}>
               <div className="card">
                 <p>{s.date}</p>
-                <p>slot:{s.slot}</p>
                 <p>
-                  status: <button>{s.status}</button>
+                  <strong>Slot:</strong>
+                  {s.slot}
                 </p>
-                <p>Booked By: {s.name}</p>
+                <p>
+                  <strong>Status: </strong>
+                  <button className="btn btn-outline-success">
+                    {s.status}
+                  </button>
+                </p>
+                <p>
+                  <strong>Booked By:</strong>
+                  {s.name}
+                </p>
                 <p> {s.email}</p>
                 <p> {s.phone}</p>
               </div>
