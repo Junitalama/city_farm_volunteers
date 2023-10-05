@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 
-const Api = "https://city-farms-db.onrender.com/manager";
+const Api = "https://city-farms-db.onrender.com/booking";
 
 function Sessions() {
   const [session, setSession] = useState([]);
@@ -31,12 +31,13 @@ function Sessions() {
             <li key={s.ses_id}>
               <div className="card">
                 <p>{s.date}</p>
+                <p>slot:{s.slot}</p>
                 <p>
-                  Morning: <button className={s.morning}>{s.morning}</button>
+                  status: <button>{s.status}</button>
                 </p>
-                <p>
-                  Evening: <button className={s.evening}>{s.evening}</button>
-                </p>
+                <p>Booked By: {s.name}</p>
+                <p> {s.email}</p>
+                <p> {s.phone}</p>
               </div>
             </li>
           ))}

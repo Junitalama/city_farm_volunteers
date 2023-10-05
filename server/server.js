@@ -22,9 +22,9 @@ app.get("/", (req, res) => {
     .catch((err) => res.send(err));
 });
 
-app.get("/manager", (req, res) => {
+app.get("/booking", (req, res) => {
   db.query(
-    "select * from sessions where morning = 'booked' or  evening = 'booked';"
+    "select * from bookings join sessions on(bookings.ses_id = sessions.ses_id) join volunteers on(bookings.vol_id = volunteers.vol_id);"
   )
     .then((result) => res.json(result.rows))
     .catch((err) => res.send(err));
@@ -45,32 +45,6 @@ app.post("/volunteers", (req, res) => {
     .then((result) => res.status(200).json(result.rows[0]))
     .catch((err) => res.send(err));
 });
-
-app.put("/morning/:id", function (req, res) {
-  let id = Number(req.params.ses_id);
-  let  {is_morning } = req.body;
-
-  db.query("UPDATE sessions SET morning = $1 WHERE id = $2", [is_morning, id])
-    .then(() => res.json({ status: `Session status has been updated!` }))
-    .catch((err) => {
-      console.error(err);
-      res.status(500).json({ error: err });
-    });
-});
-
-app.put("/evening/:id", function (req, res) {
-  let id = Number(req.params.ses_id);
-  let { is_evening } = req.body;
-
-  db.query("UPDATE sessions SET morning = $1 WHERE id = $2", [is_evening, id])
-    .then(() => res.json({ status: `Session status has been updated!` }))
-    .catch((err) => {
-      console.error(err);
-      res.status(500).json({ error: err });
-    });
-});
-
-
 
 // app.get("/volunteers/:slot", (req, res) => {
 //   let slotLooked = req.params.slot;

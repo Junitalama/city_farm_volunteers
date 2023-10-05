@@ -196,4 +196,8 @@ abbr[title] {
   input {
     width: 20em;
   }
+  .card{
+    display:flex;
+    flex-direction: column;
+  }
 }

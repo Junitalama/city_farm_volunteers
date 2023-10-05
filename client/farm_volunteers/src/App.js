@@ -19,7 +19,6 @@ function App() {
       <Volunteers />
       <Sessions />
       <Contact />
-
       <Footer />
     </div>
   );

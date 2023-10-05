@@ -24,10 +24,7 @@ function Volunteers() {
     })
       .then((response) => response.json())
       .then((data) => {
-        setVolunteers((v) => [
-          ...v,
-          { ...newVolunteer, id: data.vol_id, rating: 0 },
-        ]);
+        setVolunteers((v) => [...v, { ...newVolunteer, id: data.vol_id }]);
       })
       .catch((error) => console.error("Error adding video:", error));
   };
@@ -35,7 +32,7 @@ function Volunteers() {
   return (
     <div>
       <Form onAdd={handleAdd} />
-     
+
       <div className="volunteers" id="profile">
         {volunteers.map((s) => {
           return (
