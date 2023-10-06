@@ -16,7 +16,7 @@ function Volunteers() {
 
   return (
     <div>
-      <h4>Volunteers' profile</h4>
+      <h4 id ="profile">Volunteers' profile</h4>
       <div className="volunteers" id="profile">
         {volunteers.map((s) => {
           return (
@@ -25,7 +25,6 @@ function Volunteers() {
                 <p>Name :{s.name}</p>
                 <p>Email :{s.email}</p>
                 <p>Phone :{s.phone}</p>
-                <p>Date:{s.date}</p>
               </div>
             </li>
           );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import BookingForm from "./Form";
+import CancelBookingButton from "./CancelBooking";
 
 const Api = "https://city-farms-db.onrender.com/booking";
 
@@ -20,6 +21,18 @@ function Sessions() {
     newBooking.status = "booked";
     setSession((prevSession) => [...prevSession, newBooking]);
   };
+
+   const handleDelete = (id) => {
+     fetch(`${Api}/${id}`, {
+       method: "DELETE",
+     })
+       .then(() => {
+         setSession((prevVideos) =>
+           prevVideos.filter((video) => video.id !== id)
+         );
+       })
+       .catch((error) => console.error("Error deleting video:", error));
+   };
 
   return (
     <div>
@@ -47,6 +60,9 @@ function Sessions() {
               </p>
               <p> {s.email}</p>
               <p> {s.phone}</p>
+              <CancelBookingButton bookingId={s.id}
+              onDelete={handleDelete}
+              />
             </div>
           </li>
         ))}

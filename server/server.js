@@ -48,10 +48,8 @@ app.get("/volunteers", (req, res) => {
 
 app.post("/bookings", (req, res) => {
   const { name, phone, email, slot, date, status } = req.body;
-
-  // Insert the new booking into the 'bookings' table
   db.query(
-    "INSERT INTO bookings (ses_id, vol_id) VALUES ((SELECT ses_id FROM sessions WHERE Date = $1 AND STATUS = $2), (SELECT vol_id FROM volunteers WHERE Name = $3 AND Email = $4 AND Phone = $5)) RETURNING *",
+    "insert into bookings (ses_id, vol_id) values ((select ses_id from sessions where date = $1 and status = $2), (select vol_id from volunteers where name = $3 and email = $4 and phone = $5)) returning *",
     [date, status, name, email, phone]
   )
     .then((result) => {
@@ -65,12 +63,10 @@ app.post("/bookings", (req, res) => {
     });
 });
 
-// app.get("/volunteers/:slot", (req, res) => {
-//   let slotLooked = req.params.slot;
-
-//   db.query("select * from volunteers where slot like $1 || '%'", [slotLooked])
-
-//     .then((result) => res.json(result.rows))
-//     .catch((err) => res.json(err));
-// });
+app.delete("/booking/:id", (req, res) => {
+  let idToDelete = Number(req.params.id);
+  db.query("delete from bookings where id = $1", [idToDelete])
+    .then(() => res.status(200).json({}))
+    .catch((err) => res.send(err));
+});
 app.listen(port, () => console.log(`Listening on port ${port}`));
