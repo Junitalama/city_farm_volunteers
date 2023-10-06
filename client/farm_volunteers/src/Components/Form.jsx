@@ -110,7 +110,7 @@ function BookingForm({ onAdd }) {
             
           />
         </div>
-        <button className="btn btn-info" type="submit">Book</button>
+        <button className ="btn btn-info" type="submit">Book</button>
       </form>
     </div>
   );
