@@ -28,10 +28,14 @@ function Sessions() {
      })
        .then(() => {
          setSession((prevBooking) =>
-           prevBooking.filter((booking) => booking.id !== id)
-         );
+       
+           prevBooking.filter((booking) => {
+              console.log(id);
+              console.log(booking.id)
+            return(booking.id !== id)
+           }))
        })
-       .catch((error) => console.error("Error deleting video:", error));
+       .catch((error) => console.error("Error deleting booking:", error));
    };
 
   return (

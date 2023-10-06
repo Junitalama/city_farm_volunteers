@@ -21,27 +21,26 @@ function BookingForm({ onAdd }) {
       status,
     };
 
-     fetch("https://city-farms-db.onrender.com/booking", {
-       method: "POST",
-       headers: {
-         "Content-Type": "application/json",
-       },
-       body: JSON.stringify(newBooking),
-     })
-       .then((res) => res.json())
-       .then((data) => {
-         console.log(data);
-         onAdd(newBooking);
+    fetch("https://city-farms-db.onrender.com/booking", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newBooking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        onAdd(newBooking);
 
-         setName("");
-         setEmail("");
-         setPhone("");
-         setSlot("");
-         setDate("");
-         setStatus("");
-       });
+        setName("");
+        setEmail("");
+        setPhone("");
+        setSlot("");
+        setDate("");
+        setStatus("");
+      });
 
-    
     onAdd(newBooking);
 
     setName("");
@@ -55,7 +54,7 @@ function BookingForm({ onAdd }) {
   return (
     <div>
       <h2>Book a Slot</h2>
-      <form  id ="form" onSubmit={handleSubmit}>
+      <form id="form" onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>
           <input
@@ -107,10 +106,11 @@ function BookingForm({ onAdd }) {
             type="text"
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-            
           />
         </div>
-        <button className ="btn btn-info" type="submit">Book</button>
+        <button className="btn btn-info" type="submit">
+          Book
+        </button>
       </form>
     </div>
   );
