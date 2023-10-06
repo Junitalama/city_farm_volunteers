@@ -83,7 +83,6 @@ app.delete("/booking/:id", (req, res) => {
         })
         .catch((err) => res.status(500).json({ error: err.message }));
     })
-    .catch((err) => res.status(500).json({ error: err.message }));
-});
+  })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
