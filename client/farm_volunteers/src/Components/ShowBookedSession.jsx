@@ -1,57 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
+import BookingForm from "./Form";
 
 const Api = "https://city-farms-db.onrender.com/booking";
 
 function Sessions() {
   const [session, setSession] = useState([]);
-  const [booked, setBooked] = useState(false);
 
-  const ShowBooked = () => {
+  useEffect(() => {
     fetch(Api)
       .then((res) => res.json())
       .then((data) => {
         setSession(data);
-        setBooked(true);
       })
       .catch((error) => console.error("Error fetching data: ", error));
+  }, []);
+
+  const handleAdd = (newBooking) => {
+    newBooking.status = "booked";
+    setSession((prevSession) => [...prevSession, newBooking]);
   };
 
   return (
     <div>
+      <BookingForm onAdd={handleAdd} />
       <Typography variant="h5" gutterBottom>
         Sessions
       </Typography>
-      <button className="btn btn-info" onClick={ShowBooked}>
-        Show Booked Session
-      </button>
-      {booked && (
-        <div className="session">
-          {session.map((s) => (
-            <li key={s.ses_id}>
-              <div className="card">
-                <p>{s.date}</p>
-                <p>
-                  <strong>Slot:</strong>
-                  {s.slot}
-                </p>
-                <p>
-                  <strong>Status: </strong>
-                  <button className="btn btn-outline-success">
-                    {s.status}
-                  </button>
-                </p>
-                <p>
-                  <strong>Booked By:</strong>
-                  {s.name}
-                </p>
-                <p> {s.email}</p>
-                <p> {s.phone}</p>
-              </div>
-            </li>
-          ))}
-        </div>
-      )}
+
+      <div className="session">
+        {session.map((s) => (
+          <li key={s.id}>
+            <div className="card">
+              <p>{s.date}</p>
+              <p>
+                <strong>Slot:</strong>
+                {s.slot}
+              </p>
+              <p>
+                <strong>Status: </strong>
+                <button className="btn btn-outline-success">{s.status}</button>
+              </p>
+              <p>
+                <strong>Booked By:</strong>
+                {s.name}
+              </p>
+              <p> {s.email}</p>
+              <p> {s.phone}</p>
+            </div>
+          </li>
+        ))}
+      </div>
     </div>
   );
 }

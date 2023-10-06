@@ -15,17 +15,18 @@ booking_id SERIAL PRIMARY KEY, ses_id INT REFERENCES sessions(ses_id) NOT NULL, 
 
 INSERT INTO sessions(date, slot, status) VALUES ('2023-09-23', 'morning', 'booked');
 
-INSERT INTO sessions(date, status) VALUES ('2023-09-24', 'booked');
+INSERT INTO sessions(date, slot, status) VALUES ('2023-09-24', 'evening', booked');
 
-INSERT INTO sessions(date, status) VALUES ('2023-09-25', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2023-09-24', 'evening', booked');
 
-INSERT INTO sessions(date, status) VALUES ('2023-09-27', 'canceled');
+INSERT INTO sessions(date, slot, status) VALUES ('2023-09-27', 'morning','canceled');
 
-INSERT INTO sessions(date, status) VALUES ('2023-09-28', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2023-09-28', 'evening', 'available');
 
-INSERT INTO sessions(date, status) VALUES ('2023-09-29', 'booked');
+INSERT INTO sessions(date,slot, status) VALUES ('2023-09-29', 'evening', 'booked');
 
-INSERT INTO sessions(date, status) VALUES ('2023-10-29', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2023-10-29','morning', 'available');
+
 
 INSERT INTO volunteers(name, email,phone) VALUES ( 'Afsha Hossain', 'afsha@yahoo.com', '07562221333');
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Form from "./Form";
 
 const Api = "https://city-farms-db.onrender.com/volunteers";
 
@@ -14,24 +13,9 @@ function Volunteers() {
       })
       .catch((error) => console.error("error"));
   }, []);
-  const handleAdd = (newVolunteer) => {
-    fetch(Api, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newVolunteer),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setVolunteers((v) => [...v, { ...newVolunteer, id: data.vol_id }]);
-      })
-      .catch((error) => console.error("Error adding video:", error));
-  };
 
   return (
     <div>
-      <Form onAdd={handleAdd} />
       <h4>Volunteers' profile</h4>
       <div className="volunteers" id="profile">
         {volunteers.map((s) => {
