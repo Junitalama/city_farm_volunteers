@@ -60,10 +60,8 @@ function Sessions() {
               </p>
               <p> {s.email}</p>
               <p> {s.phone}</p>
-              <CancelBookingButton bookingId={s.id}
-              onDelete={handleDelete}
-              />
             </div>
+            <CancelBookingButton bookingId={s.id} onDelete={handleDelete} />
           </li>
         ))}
       </div>
