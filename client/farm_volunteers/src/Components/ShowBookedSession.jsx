@@ -27,8 +27,8 @@ function Sessions() {
        method: "DELETE",
      })
        .then(() => {
-         setSession((prevVideos) =>
-           prevVideos.filter((video) => video.id !== id)
+         setSession((prevBooking) =>
+           prevBooking.filter((booking) => booking.id !== id)
          );
        })
        .catch((error) => console.error("Error deleting video:", error));
