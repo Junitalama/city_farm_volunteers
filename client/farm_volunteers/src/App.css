@@ -4,18 +4,6 @@
   color: black;
 }
 
-.canceled {
-  background-color: red;
-}
-
-.booked {
-  background-color: green;
-}
-
-.available {
-  background-color: orange;
-}
-
 .session {
   display: flex;
   flex-direction: row;
@@ -34,12 +22,12 @@ li {
   margin-top: 3em;
 }
 .card_2 {
-  background-color: gray;
+  background-color:whitesmoke;
   color: black;
   width: 20em;
   margin-right: auto;
   margin-left: auto;
-  border: 1px solid blue;
+  border: 1px solid gray;
 }
 
 h2,
@@ -189,7 +177,7 @@ abbr[title] {
   .volunteers {
     display: flex;
     flex-direction: column;
-    width: 15em;
+    width: 20em;
     margin-left: auto;
     margin-right: auto;
   }
