@@ -1,25 +1,30 @@
-import React, { useState, useEffect } from "react";
+
+import React, { useState } from "react";
 
 const Api = "https://city-farms-db.onrender.com/volunteers";
 
 function Volunteers() {
   const [volunteers, setVolunteers] = useState([]);
+  const [showProfile, setShowProfile] = useState(false);
 
-  useEffect(() => {
+ const volunteersProfile =() => {
     fetch(Api)
       .then((res) => res.json())
       .then((data) => {
         setVolunteers(data);
+        setShowProfile(true);
       })
-      .catch((error) => console.error("error"));
-  }, []);
+      .catch((error) => console.error("error",error))
+  };
 
   return (
     <div>
-      <h4 id ="profile">Volunteers' profile</h4>
+   
+      <button className = "btn btn-info" onClick = {volunteersProfile}>Show Profile</button>
+      {showProfile && (
       <div className="volunteers" id="profile">
-        {volunteers.map((s) => {
-          return (
+        {volunteers.map((s) => (
+          
             <li key={s.ses_id}>
               <div className="card_2">
                 <p>Name :{s.name}</p>
@@ -27,10 +32,12 @@ function Volunteers() {
                 <p>Phone :{s.phone}</p>
               </div>
             </li>
-          );
-        })}
-      </div>
+          
+        ))}
+     </div>
+      )}
     </div>
+      
   );
 }
 export default Volunteers;
