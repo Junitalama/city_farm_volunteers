@@ -3,7 +3,7 @@ dotenv.config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const bodyParser = require("body-parser");
 app.use(cors({ AllowedHeaders: ["Content-Type", "Authorization"] }));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -47,7 +47,7 @@ app.get("/volunteers", (req, res) => {
 // });
 
 app.post("/bookings", (req, res) => {
-  const { name, phone, email, slot, date, status } = req.body;
+  const { date, status, name, email, phone } = req.body;
   db.query(
     "insert into bookings (ses_id, vol_id) values ((select ses_id from sessions where date = $1 and status = $2), (select vol_id from volunteers where name = $3 and email = $4 and phone = $5)) returning *",
     [date, status, name, email, phone]

@@ -22,21 +22,21 @@ function Sessions() {
     setSession((prevSession) => [...prevSession, newBooking]);
   };
 
-   const handleDelete = (id) => {
-     fetch(`${Api}/${id}`, {
-       method: "DELETE",
-     })
-       .then(() => {
-         setSession((prevBooking) =>
-       
-           prevBooking.filter((booking) => {
-              console.log(id);
-              console.log(booking.id)
-            return(booking.booking_id !== id)
-           }))
-       })
-       .catch((error) => console.error("Error deleting booking:", error));
-   };
+  const handleDelete = (id) => {
+    fetch(`${Api}/${id}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        setSession((prevBooking) =>
+          prevBooking.filter((booking) => {
+            console.log(id);
+            console.log(booking.id);
+            return booking.booking_id !== id;
+          })
+        );
+      })
+      .catch((error) => console.error("Error deleting booking:", error));
+  };
 
   return (
     <div>
@@ -65,7 +65,10 @@ function Sessions() {
               <p> {s.email}</p>
               <p> {s.phone}</p>
             </div>
-            <CancelBookingButton bookingId={s.booking_id} onDelete={handleDelete} />
+            <CancelBookingButton
+              bookingId={s.booking_id}
+              onDelete={handleDelete}
+            />
           </li>
         ))}
       </div>

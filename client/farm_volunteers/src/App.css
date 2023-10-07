@@ -22,7 +22,7 @@ li {
   margin-top: 3em;
 }
 .card_2 {
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   color: black;
   width: 20em;
   margin-right: auto;
@@ -194,4 +194,10 @@ abbr[title] {
     display: flex;
     flex-direction: column;
   }
+}
+.volunteers_sec {
+  margin-top: 3em;
+}
+.btn-outline-warning {
+  padding: 1em;
 }
