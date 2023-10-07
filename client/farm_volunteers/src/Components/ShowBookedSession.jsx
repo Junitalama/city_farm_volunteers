@@ -32,7 +32,7 @@ function Sessions() {
            prevBooking.filter((booking) => {
               console.log(id);
               console.log(booking.id)
-            return(booking.id !== id)
+            return(booking.booking_id !== id)
            }))
        })
        .catch((error) => console.error("Error deleting booking:", error));
@@ -47,7 +47,7 @@ function Sessions() {
 
       <div className="session">
         {session.map((s) => (
-          <li key={s.id}>
+          <li key={s.booking_id}>
             <div className="card">
               <p>{s.date}</p>
               <p>
@@ -65,7 +65,7 @@ function Sessions() {
               <p> {s.email}</p>
               <p> {s.phone}</p>
             </div>
-            <CancelBookingButton bookingId={s.id} onDelete={handleDelete} />
+            <CancelBookingButton bookingId={s.booking_id} onDelete={handleDelete} />
           </li>
         ))}
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 
 function CancelBookingButton({ bookingId, onDelete }) {
-  const handleDelete = () => {
+  const deleteBooking = () => {
     fetch(`https://city-farms-db.onrender.com/booking/${bookingId}`, {
       method: "DELETE",
     }).then((res) => {
@@ -12,7 +12,7 @@ function CancelBookingButton({ bookingId, onDelete }) {
   };
 
   return (
-    <button className="btn btn-danger" onClick={handleDelete}>
+    <button className="btn btn-danger" onClick={deleteBooking}>
       Cancel Booking
     </button>
   );
