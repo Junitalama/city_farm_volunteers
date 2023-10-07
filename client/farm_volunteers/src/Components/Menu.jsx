@@ -41,9 +41,7 @@ export default function PositionedMenu() {
         }}
       >
         <MenuItem onClick={handleClose}>
-          <a href="#home">
-           
-          </a>
+          <a href="#home">Home</a>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <a href="#profile">volunteers' profile</a>
