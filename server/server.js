@@ -47,10 +47,10 @@ app.get("/volunteers", (req, res) => {
 // });
 
 app.post("/booking", (req, res) => {
-  const { date, slot, name, email, phone } = req.body;
+  const { date, slot,status, name, email, phone } = req.body;
   db.query(
-    "insert into bookings (ses_id, vol_id) values ((select ses_id from sessions where date = $1 and slot = $2 ), (select vol_id from volunteers where name = $3 and email = $4 and phone = $5)) returning *",
-    [date, slot, name, email, phone]
+    "insert into bookings (ses_id, vol_id) values ((select ses_id from sessions where date = $1 and slot = $2 and status = $3), (select vol_id from volunteers where name = $4 and email = $5 and phone = $6)) returning *",
+    [date, slot, status, name, email, phone]
   )
     .then((result) => {
       res.status(201).json(result.rows[0]);
