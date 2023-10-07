@@ -46,7 +46,7 @@ app.get("/volunteers", (req, res) => {
 //     .catch((err) => res.send(err));
 // });
 
-app.post("/bookings", (req, res) => {
+app.post("/booking", (req, res) => {
   const { date, slot, name, email, phone } = req.body;
   db.query(
     "insert into bookings (ses_id, vol_id) values ((select ses_id from sessions where date = $1 and slot = $2 ), (select vol_id from volunteers where name = $3 and email = $4 and phone = $5)) returning *",
