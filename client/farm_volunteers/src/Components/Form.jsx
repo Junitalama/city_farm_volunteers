@@ -41,6 +41,8 @@ function BookingForm({ onAdd }) {
         setStatus("");
       });
 
+
+      
     onAdd(newBooking);
 
     setName("");
