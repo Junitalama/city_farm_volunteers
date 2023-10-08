@@ -18,7 +18,7 @@ function BookingForm({ onAdd }) {
       status,
       name,
       email,
-      phone,
+      phone
     };
 
     fetch("https://city-farms-db.onrender.com/booking", {
@@ -31,11 +31,8 @@ function BookingForm({ onAdd }) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-       
       });
 
-
-      
     onAdd(newBooking);
 
     setName("");
