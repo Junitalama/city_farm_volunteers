@@ -36,32 +36,32 @@ app.get("/volunteers", (req, res) => {
     .catch((err) => res.send(err));
 });
 
-// app.post("/booking", (req, res) => {
-//   const { name, email, phone, slot, date } = req.body;
-//   db.query(
-//     "insert into booking (name, email, phone, slot, date) values ($1, $2, $3, $4,$5) returning id",
-//     [name, email, phone, slot, date]
-//   )
-//     .then((result) => res.status(200).json(result.rows[0]))
-//     .catch((err) => res.send(err));
-// });
-
 app.post("/booking", (req, res) => {
-  const { date, slot,status, name, email, phone } = req.body;
+  const { date, slot,status,name,email, phone } = req.body;
   db.query(
-    "insert into bookings (ses_id, vol_id) values ((select ses_id from sessions where date = $1 and slot = $2 and status = $3), (select vol_id from volunteers where name = $4 and email = $5 and phone = $6)) returning booking_id",
+    "insert into booking (date, slot,status,name,email, phone ) values ($1, $2, $3, $4,$5, $6) returning id",
     [date, slot, status, name, email, phone]
   )
-    .then((result) => {
-      res.status(201).json(result.rows[0]);
-    })
-    .catch((err) => {
-      console.error("Error adding booking:", err);
-      res
-        .status(500)
-        .json({ error: "An error occurred while adding the booking." });
-    });
+    .then((result) => res.status(200).json(result.rows[0]))
+    .catch((err) => res.send(err));
 });
+
+// app.post("/booking", (req, res) => {
+//   const { date, slot,status, name, email, phone } = req.body;
+//   db.query(
+//     "insert into bookings (ses_id, vol_id) values ((select ses_id from sessions where date = $1 and slot = $2 and status = $3), (select vol_id from volunteers where name = $4 and email = $5 and phone = $6)) returning booking_id",
+//     [date, slot, status, name, email, phone]
+//   )
+//     .then((result) => {
+//       res.status(201).json(result.rows[0]);
+//     })
+//     .catch((err) => {
+//       console.error("Error adding booking:", err);
+//       res
+//         .status(500)
+//         .json({ error: "An error occurred while adding the booking." });
+//     });
+// });
 
 app.delete("/booking/:id", (req, res) => {
   let idToDelete = Number(req.params.id);
