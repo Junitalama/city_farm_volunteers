@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 
 function BookingForm({ onAdd }) {
+  const [date, setDate] = useState("");
+  const [slot, setSlot] = useState("");
+  const [status, setStatus] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [slot, setSlot] = useState("");
-  const [date, setDate] = useState("");
-  const [status, setStatus] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Create a new booking object
     const newBooking = {
+      date,
+      slot,
+      status,
       name,
       email,
       phone,
-      slot,
-      date,
-      status,
     };
 
     fetch("https://city-farms-db.onrender.com/booking", {
@@ -31,14 +31,7 @@ function BookingForm({ onAdd }) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        onAdd(newBooking);
-
-        setName("");
-        setEmail("");
-        setPhone("");
-        setSlot("");
-        setDate("");
-        setStatus("");
+       
       });
 
 
