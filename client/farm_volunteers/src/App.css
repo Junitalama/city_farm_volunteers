@@ -54,9 +54,6 @@ h5 {
 input {
   width: 30em;
 }
-label {
-  padding: 0.7em;
-}
 
 .MuiCard-root {
   display: flex;
@@ -197,6 +194,10 @@ abbr[title] {
     width: 10em;
     margin-right: auto;
     margin-left: auto;
+  }
+  .session_info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
   input {
     width: 20em;
