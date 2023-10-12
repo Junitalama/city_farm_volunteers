@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SessionInfo from "./SessionsInfo";
 
 const Api = "https://city-farms-db.onrender.com/volunteers";
 
@@ -19,7 +20,7 @@ function Volunteers() {
   return (
     <div className = "manager">
       <h4 id ="profile" className = "volunteers_sec">Meet our Volunteers</h4>
-      <button className="btn btn-outline-warning" onClick={volunteersProfile}>
+      <button className="btn btn-outline-success" onClick={volunteersProfile}>
         Show Profile
       </button>
       {showProfile && (
@@ -35,6 +36,7 @@ function Volunteers() {
           ))}
         </div>
       )}
+      <SessionInfo />
     </div>
   );
 }

@@ -45,7 +45,7 @@ function BookingForm({ onAdd }) {
 
   return (
     <div>
-      <h2>Book a Slot</h2>
+      <h3>Hello voluneers, please book your slot here</h3>
       <form id="form" onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>

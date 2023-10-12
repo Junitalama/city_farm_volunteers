@@ -35,10 +35,13 @@ h3 {
   margin-top: 2em;
 }
 h4 {
-  background-color: beige;
   width: 18em;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 5em;
+}
+h5 {
+  color: blue;
 }
 .add {
   font-size: 2em;
@@ -50,6 +53,9 @@ h4 {
 
 input {
   width: 30em;
+}
+label {
+  padding: 0.7em;
 }
 
 .MuiCard-root {
@@ -72,13 +78,14 @@ a {
   justify-content: center;
   align-items: center;
   column-gap: 5em;
+  margin-top: 2em;
 }
 
 .footer-end {
   text-align: center;
   color: red;
   font-size: 0.9rem;
-  margin-top: 2em;
+  margin-top: 3em;
   border-top: 1px solid black;
 }
 
@@ -171,6 +178,10 @@ abbr[title] {
   border-bottom-right-radius: 6px;
   background: #6f48eb;
   color: white;
+}
+.session_info {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 @media only screen and (max-width: 480px) {

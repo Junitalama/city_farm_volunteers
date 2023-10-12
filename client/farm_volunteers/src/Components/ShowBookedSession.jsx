@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import BookingForm from "./Form";
-import CancelBookingButton from "./CancelBooking";import CalendarData from "./Calendar";
+import CancelBookingButton from "./CancelBooking";
 
 const Api = "https://city-farms-db.onrender.com/booking";
 
@@ -39,11 +39,10 @@ function Sessions() {
   };
 
   return (
-    <div className="volunteer">
-      <CalendarData />
+    <div>
       <BookingForm onAdd={handleAdd} />
       <Typography variant="h5" gutterBottom>
-        Sessions
+        View or Cancel your booking here:
       </Typography>
 
       <div className="session">
