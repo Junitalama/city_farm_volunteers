@@ -17,7 +17,7 @@ function Volunteers() {
   };
 
   return (
-    <div>
+    <div className = "manager">
       <h4 id ="profile" className = "volunteers_sec">Meet our Volunteers</h4>
       <button className="btn btn-outline-warning" onClick={volunteersProfile}>
         Show Profile

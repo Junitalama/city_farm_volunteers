@@ -5,8 +5,8 @@ function CalendarData() {
   const [date, setDate] = useState(new Date());
 
   return (
-    <div className="app">
-      <h1 className="header">React Calendar</h1>
+    <div className="volunteer">
+      <h1 className="header">Hello Volunteers, please book your slot here</h1>
       <div className="calendar-container">
         <Calendar onChange={setDate} value={date} />
       </div>
