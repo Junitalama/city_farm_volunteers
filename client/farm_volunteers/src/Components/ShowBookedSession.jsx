@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
-//import BookingForm from "./Form";
+import BookingForm from "./Form";
 import CancelBookingButton from "./CancelBooking";
-import CalendarData from "./Calendar";
 
 const Api = "https://city-farms-db.onrender.com/booking";
 
@@ -18,10 +17,10 @@ function Sessions() {
       .catch((error) => console.error("Error fetching data: ", error));
   }, []);
 
-  // const handleAdd = (newBooking) => {
-  //   newBooking.status = "booked";
-  //   setSession((prevSession) => [...prevSession, newBooking]);
-  // };
+  const handleAdd = (newBooking) => {
+    newBooking.status = "booked";
+    setSession((prevSession) => [...prevSession, newBooking]);
+  };
 
   const handleDelete = (id) => {
     fetch(`${Api}/${id}`, {
@@ -41,8 +40,7 @@ function Sessions() {
 
   return (
     <div>
-      <CalendarData />
-      
+      <BookingForm onAdd={handleAdd} />
       <Typography variant="h5" gutterBottom>
         View or Cancel your booking here:
       </Typography>
