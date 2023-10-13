@@ -5,7 +5,8 @@
 }
 
 .session {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
   flex-direction: row;
   justify-content: space-evenly;
   gap: 1em;
