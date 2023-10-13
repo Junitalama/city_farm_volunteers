@@ -36,7 +36,6 @@ app.get("/volunteers", (req, res) => {
     .catch((err) => res.send(err));
 });
 
-
 // app.post("/booking", (req, res) => {
 //   const { date, slot,status,name,email, phone } = req.body;
 //   db.query(
@@ -48,7 +47,7 @@ app.get("/volunteers", (req, res) => {
 // });
 
 app.post("/booking", (req, res) => {
-  const { date, slot,status, name, email, phone } = req.body;
+  const { date, slot, status, name, email, phone } = req.body;
   db.query(
     "insert into bookings (ses_id, vol_id) values ((select ses_id from sessions where date = $1 and slot = $2 and status = $3),(select vol_id from volunteers where name = $4 and email = $5 and phone = $6)) returning *",
     [date, slot, status, name, email, phone]
@@ -63,7 +62,6 @@ app.post("/booking", (req, res) => {
         .json({ error: "An error occurred while adding the booking." });
     });
 });
-
 
 app.delete("/booking/:id", (req, res) => {
   let idToDelete = Number(req.params.id);

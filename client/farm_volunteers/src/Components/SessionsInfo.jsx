@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 const Api = "https://city-farms-db.onrender.com";
 
 function SessionInfo() {
@@ -19,9 +18,7 @@ function SessionInfo() {
 
   return (
     <div className="volunteer">
-      <h4>
-        Sessions Status
-      </h4>
+      <h4>Sessions Status</h4>
       <button className="btn btn-outline-success" onClick={showingStatus}>
         Show Sessions status
       </button>

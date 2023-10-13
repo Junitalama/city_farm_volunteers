@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 
-
-
-
 function BookingForm({ onAdd }) {
   const [date, setDate] = useState("");
   const [slot, setSlot] = useState("");
@@ -11,22 +8,17 @@ function BookingForm({ onAdd }) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
-  
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-  
     const newBooking = {
       date,
       slot,
       status,
       name,
       email,
-      phone
+      phone,
     };
-     
-
 
     fetch("https://city-farms-db.onrender.com/booking", {
       method: "POST",
@@ -47,15 +39,33 @@ function BookingForm({ onAdd }) {
     setName("");
     setEmail("");
     setPhone("");
-  
-   
   };
 
   return (
     <div>
       <h3>Hello voluneers, please book your slot here</h3>
       <form id="form" onSubmit={handleSubmit}>
-       <div>
+        <div>
+          <label>Slot:</label>
+          <select
+            type="text"
+            value={slot}
+            onChange={(e) => setSlot(e.target.value)}
+          >
+            <option value="Morning">Morning</option>
+            <option value="Evening">Evening</option>
+          </select>
+        </div>
+        <div>
+          <label>Date:</label>
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+          />
+        </div>
+        <div>
           <label>Name:</label>
           <input
             type="text"
@@ -82,24 +92,7 @@ function BookingForm({ onAdd }) {
             required
           />
         </div>
-        <div>
-          <label>Slot:</label>
-          <input
-            type="text"
-            value={slot}
-            onChange={(e) => setSlot(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Date:</label>
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            required
-          />
-        </div>
+
         <div>
           <label>Status:</label>
           <input
