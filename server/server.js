@@ -80,10 +80,10 @@ app.get("/sessions/calendar/:date", async (req, res) => {
 
 app.post("/booking", async (req, res) => {
   const { date, slot, status, name, email, phone } = req.body;
-  const query =
-    "INSERT INTO bookings (date, slot,status, name, email, phone) VALUES ($1, $2, $3, $4, $5, $6)";
+  const query ="insert into bookings (ses_id, vol_id) values ((select ses_id from sessions where date = $1 and slot = $2 and status = $3), (select vol_id from volunteers where name = $4 and email = $5 and phone = $6)) returning booking_id"
+
   try {
-    await pool.query(query, [date, slot, status, name, email, phone]);
+    await db.query(query, [date, slot, status, name, email, phone]);
     res.status(201).send("Booking successful");
   } catch (error) {
     console.error(error);
