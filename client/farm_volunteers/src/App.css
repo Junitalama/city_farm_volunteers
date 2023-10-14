@@ -191,7 +191,7 @@ abbr[title] {
     margin-right: auto;
   }
   .session {
-    flex-direction: column;
+    grid-template-columns: repeat(2, 1fr);
     width: 10em;
     margin-right: auto;
     margin-left: auto;
