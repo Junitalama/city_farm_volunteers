@@ -50,9 +50,9 @@ app.post("/booking", async (req, res) => {
   try {
     const { ses_id, vol_id } = req.body;
 
-    const sessionExists = await db.query("select * from sessions", ses_id);
+    const sessionExists = await db.query("select * from sessions where ses_id = $1", [ses_id]);
     console.log(sessionExists);
-    const volunteerExists = await db.query("select * from volunteers", vol_id);
+    const volunteerExists = await db.query("select * from volunteers where vol_id = $1",[vol_id]);
     if (!sessionExists || !volunteerExists) {
       return res
         .status(404)
