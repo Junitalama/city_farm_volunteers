@@ -48,21 +48,23 @@ app.get("/volunteers", (req, res) => {
 
 app.post("/booking", async (req, res) => {
   try {
-    const { ses_id, vol_id } = req.body;
+    const { ses_id,vol_id } = req.body;
 
-    const sessionExists = await db.query("select * from sessions where ses_id = $1", [ses_id]);
-    console.log(sessionExists);
-    const volunteerExists = await db.query("select * from volunteers where vol_id = $1",[vol_id]);
-    if (!sessionExists || !volunteerExists) {
-      return res
-        .status(404)
-        .json({ message: "Session or volunteer not found" });
-    }
 
-    await db.query("insert into bookings (ses_id, vol_id) values ($1, $2)", [
-      ses_id,
-      vol_id,
-    ]);
+
+    // const sessionExists = await db.query("select * from sessions where ses_id = $1", [ses_id]);
+    // console.log("sessions" ,sessionExists);
+    // const volunteerExists = await db.query("select * from volunteers where vol_id = $1",[vol_id]);
+    // if (!volunteerExists) {
+    //   return res
+    //     .status(404)
+    //     .json({ message: "Session or volunteer not found" });
+    // }
+
+    await db.query(
+      "insert into bookings (ses_id,vol_id) values ($1, $2)",
+      [ ses_id,vol_id]
+    );
     res.status(200).json({ message: "Booking created successfully" });
   } catch (error) {
     console.error(error);
