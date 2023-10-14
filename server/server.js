@@ -50,29 +50,25 @@ app.post("/booking", async (req, res) => {
   try {
     const { ses_id, vol_id } = req.body;
 
-    const sessionExists = await db.query(
-      "select * from sessions",
-      ses_id
-    );
-    console.log (sessionExists);
-    const volunteerExists = await db.query(
-      "select * from volunteers",
-      vol_id
-    );
+    const sessionExists = await db.query("select * from sessions", ses_id);
+    console.log(sessionExists);
+    const volunteerExists = await db.query("select * from volunteers", vol_id);
     if (!sessionExists || !volunteerExists) {
       return res
         .status(404)
         .json({ message: "Session or volunteer not found" });
     }
 
-    await db.query("insert into bookings (ses_id, vol_id) values ($1, $2)", [ses_id,vol_id]);
+    await db.query("insert into bookings (ses_id, vol_id) values ($1, $2)", [
+      ses_id,
+      vol_id,
+    ]);
     res.status(200).json({ message: "Booking created successfully" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error creating booking" });
   }
 });
-
 
 app.delete("/booking/:id", (req, res) => {
   let idToDelete = Number(req.params.id);
