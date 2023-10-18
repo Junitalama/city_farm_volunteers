@@ -35,8 +35,8 @@ const Sessions = ({ selectedDate }) => {
             <li key={session.ses_id}>
               <strong>{new Date(session.date).toLocaleDateString()}</strong>{" "}
               <br /> {session.slot} session is{" "}
-              <strong>{session.status ? "booked" : "available"}</strong>
-              {session.status ? (
+              <strong>{session.status}</strong>
+              {session.status === "booked" ? (
                 <button
                   onClick={() => {
                     setShowSlot(session.ses_id);
