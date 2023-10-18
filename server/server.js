@@ -36,6 +36,21 @@ app.get("/volunteers", (req, res) => {
     .catch((err) => res.send(err));
 });
 
+app.get("/calendar/:date", async (req, res) => {
+  let date = req.params.date;
+  try {
+    const result = await db.query(
+      "select * from sessions where to_char(date, 'yyyy-mm-dd') = $1 order by ses_id",
+      [date]
+    );
+
+    res.status(200).json(result.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "could not fetch sessions" });
+  }
+});
+
 // app.post("/booking", (req, res) => {
 //   const { date, slot,status,name,email, phone } = req.body;
 //   db.query(

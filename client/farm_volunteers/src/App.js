@@ -8,6 +8,7 @@ import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import CustomizedMenus from "./Components/ViewOption";
 import { Switch, Route } from "react-router-dom";
+import CalendarData from "./Components/Calendar";
 
 const Main = () => (
   <Switch>
@@ -23,6 +24,7 @@ function App() {
       <Header />
       <CustomizedMenus />
       <Main />
+      <CalendarData/>
       <Contact />
       <Footer />
     </div>

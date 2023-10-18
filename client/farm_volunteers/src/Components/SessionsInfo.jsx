@@ -1,53 +1,58 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 
-const Api = "https://city-farms-db.onrender.com";
+const Sessions = ({ selectedDate }) => {
+  const [sessions, setSessions] = useState([]);
+  const [showSlot, setShowSlot] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-function SessionInfo() {
-  const [session, setSession] = useState([]);
-  const [showStatus, setShowStatus] = useState(false);
-
-  const showingStatus = () => {
-    fetch(Api)
-      .then((res) => res.json())
-      .then((data) => {
-        setSession(data);
-        setShowStatus(true);
+  console.log(selectedDate);
+  useEffect(() => {
+    setIsLoading(true);
+    fetch(`https://city-farms-db.onrender.com/calendar/${selectedDate}`)
+      .then((res) => {
+        if (res.status >= 200 && res.status <= 299) {
+          return res.json();
+        } else {
+          throw new Error(`Error: ${res.status} ${res.statusText}`);
+        }
       })
-      .catch((error) => console.error("Error fetching data: ", error));
-  };
+      .then((data) => {
+        setIsLoading(false);
+        setSessions(data);
+      })
+      .catch((Error) => {
+        setIsLoading(false);
+      });
+  }, [selectedDate, showSlot]);
 
   return (
-    <div className="volunteer">
-      <h4>Sessions Status</h4>
-      <button className="btn btn-outline-success" onClick={showingStatus}>
-        Show Sessions status
-      </button>
-      {showStatus && (
-        <div className="session_info">
-          {session.map((s) => (
-            <li key={s.s_id}>
-              <div className="card">
-                <p>
-                  <strong>Date:</strong>
-                  {s.date}
-                </p>
-                <p>
-                  <strong>Slot:</strong>
-                  {s.slot}
-                </p>
-                <p>
-                  <strong>Status: </strong>
-                  <button className="btn btn-outline-success">
-                    {s.status}
-                  </button>
-                </p>
-              </div>
+    <div>
+      {isLoading ? (
+        <h3 className="loading">Loading...</h3>
+      ) : (
+        <ul>
+          {sessions.map((session) => (
+            <li key={session.ses_id}>
+              <strong>{new Date(session.date).toLocaleDateString()}</strong>{" "}
+              <br /> {session.slot} session is{" "}
+              <strong>{session.status ? "booked" : "available"}</strong>
+              {session.status ? (
+                <button
+                  onClick={() => {
+                    setShowSlot(session.ses_id);
+                  }}
+                >
+                  Cancel
+                </button>
+              ) : (
+                <button>book</button>
+              )}
             </li>
           ))}
-        </div>
+        </ul>
       )}
     </div>
   );
-}
+};
 
-export default SessionInfo;
+export default Sessions;
