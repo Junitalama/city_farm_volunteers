@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ShowSelect from "./Select";
 
 const Sessions = ({ selectedDate }) => {
   const [sessions, setSessions] = useState([]);
@@ -34,8 +35,7 @@ const Sessions = ({ selectedDate }) => {
           {sessions.map((session) => (
             <li key={session.ses_id}>
               <strong>{new Date(session.date).toLocaleDateString()}</strong>{" "}
-              <br /> {session.slot} session is{" "}
-              <strong>{session.status}</strong>
+              <br /> {session.slot} session is <strong>{session.status}</strong>
               {session.status === "booked" ? (
                 <button
                   onClick={() => {
@@ -51,6 +51,7 @@ const Sessions = ({ selectedDate }) => {
           ))}
         </ul>
       )}
+      <ShowSelect />
     </div>
   );
 };
