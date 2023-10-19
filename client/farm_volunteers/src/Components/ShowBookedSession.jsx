@@ -4,7 +4,7 @@ import BookingForm from "./Form";
 import CancelBookingButton from "./CancelBooking";
 import CalendarData from "./Calendar";
 
-const Api = "https://city-farms-db.onrender.com/booking";
+const Api = "https://city-farms-db.onrender.com/volunteers";
 
 function Sessions() {
   const [session, setSession] = useState([]);
@@ -49,10 +49,10 @@ function Sessions() {
 
       <div className="session">
         {session.map((s) => (
-          <li key={s.booking_id}>
+          <li key={s.vol_id}>
             <div className="card">
-              <p>{s.date}</p>
-              <p>
+              <p>{s.name}</p>
+              {/* <p>
                 <strong>Slot:</strong>
                 {s.slot}
               </p>
@@ -63,12 +63,12 @@ function Sessions() {
               <p>
                 <strong>Booked By:</strong>
                 {s.name}
-              </p>
+              </p> */}
               <p> {s.email}</p>
               <p> {s.phone}</p>
             </div>
             <CancelBookingButton
-              bookingId={s.booking_id}
+              bookingId={s.vol_id}
               onDelete={handleDelete}
             />
           </li>

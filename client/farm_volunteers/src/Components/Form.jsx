@@ -20,7 +20,7 @@ function BookingForm({ onAdd }) {
       phone,
     };
 
-    fetch("https://city-farms-db.onrender.com/booking", {
+    fetch("https://city-farms-db.onrender.com/volunteers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,9 +33,7 @@ function BookingForm({ onAdd }) {
       });
 
     onAdd(newBooking);
-    setDate("");
-    setSlot("");
-    setStatus("");
+    
     setName("");
     setEmail("");
     setPhone("");
@@ -43,28 +41,9 @@ function BookingForm({ onAdd }) {
 
   return (
     <div>
-      <h3>Hello voluneers, please book your slot here</h3>
+      <h3>New voluneers, please Register here</h3>
       <form id="form" onSubmit={handleSubmit}>
-        <div>
-          <label>Slot:</label>
-          <select
-            type="text"
-            value={slot}
-            onChange={(e) => setSlot(e.target.value)}
-          >
-            <option value="Morning">Morning</option>
-            <option value="Evening">Evening</option>
-          </select>
-        </div>
-        <div>
-          <label>Date:</label>
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            required
-          />
-        </div>
+       
         <div>
           <label>Name:</label>
           <input
@@ -93,16 +72,9 @@ function BookingForm({ onAdd }) {
           />
         </div>
 
-        <div>
-          <label>Status:</label>
-          <input
-            type="text"
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
-          />
-        </div>
+        
         <button className="btn btn-info" type="submit">
-          Book
+          Register
         </button>
       </form>
     </div>

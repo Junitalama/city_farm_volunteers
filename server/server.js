@@ -61,6 +61,7 @@ app.get("/calendar/:date", async (req, res) => {
 //     .catch((err) => res.send(err));
 // });
 
+
 app.post("/booking", async (req, res) => {
   try {
     const { ses_id,vol_id } = req.body;
@@ -87,9 +88,9 @@ app.post("/booking", async (req, res) => {
   }
 });
 
-app.delete("/booking/:id", (req, res) => {
+app.delete("/volunteers/:id", (req, res) => {
   let idToDelete = Number(req.params.id);
-  db.query("delete from bookings where id = $1", [idToDelete])
+  db.query("delete from volunteers where id = $1", [idToDelete])
     .then(() => res.status(200).json({}))
     .catch((err) => res.send(err));
 });

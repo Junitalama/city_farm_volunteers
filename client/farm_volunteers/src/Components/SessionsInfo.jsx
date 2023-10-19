@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import ShowSelect from "./Select";
+import SelectVolunteer from "./Select";
+
 
 const Sessions = ({ selectedDate }) => {
   const [sessions, setSessions] = useState([]);
@@ -44,14 +45,16 @@ const Sessions = ({ selectedDate }) => {
                 >
                   Cancel
                 </button>
-              ) : (
+              ) : (<div>
+                <SelectVolunteer />
                 <button>book</button>
+                </div>
               )}
             </li>
           ))}
         </ul>
       )}
-      <ShowSelect />
+     
     </div>
   );
 };

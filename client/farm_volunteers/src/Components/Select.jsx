@@ -1,50 +1,45 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { FormControl,  Select, MenuItem } from "@mui/material";
 
+const SelectVolunteer = () => {
+  const [volunteer, setVolunteer] = useState([]);
+  const [selected, setSelected] = useState("");
 
-const ShowSelect = () => {
-  const [volunteers, setVolunteers] = useState([]);
-  const [selectValue, setSelectValue] = useState(null);
-  
   useEffect(() => {
-    fetch("https://city-farms-db.onrender.com/volunteers")
-      .then((res) => res.json())
-      
-      .then((data) => {
-        setVolunteers(data);
+   
+    fetch("https://city-farms-db.onrender.com/booking")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
       })
-      .catch((Error) => console.log(Error));
+      .then((data) => {
+        setVolunteer(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   }, []);
 
-  function handleChange(event) {
-    setSelectValue(event.target.value);
-  }
+  const handleSelectChange = (event) => {
+    setSelected(event.target.value);
+  };
+
   return (
-   <div>
-      {selectValue && (
-        <div>
-          <div>
-            <p>Select your name</p>
-          </div>
-          <select
-            onChange={handleChange}
-           
-          >
-            <option value="">Select</option>
-            {volunteers.map((volunteer) => (
-              <option key={volunteer.vol_id} value={volunteer.vol_id}>
-                {volunteer.name}
-              </option>
-            ))}
-          </select>
-          </div>)}
-          </div>
-  )
-            }
-  
-           
+    <div>
+      <FormControl>
+        
+        <Select value={selected} onChange={handleSelectChange}>
+          {volunteer.map((v) => (
+            <MenuItem key={v.booking_id} value={v.booking_id}>
+              {v.name} 
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </div>
+  );
+};
 
-  export default ShowSelect;
-  
-    
-
-    
+export default SelectVolunteer;
