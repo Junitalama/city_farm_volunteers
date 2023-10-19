@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 
 function BookingForm({ onAdd }) {
-  const [date, setDate] = useState("");
-  const [slot, setSlot] = useState("");
-  const [status, setStatus] = useState("");
+ 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -12,9 +10,7 @@ function BookingForm({ onAdd }) {
     e.preventDefault();
 
     const newBooking = {
-      date,
-      slot,
-      status,
+      
       name,
       email,
       phone,

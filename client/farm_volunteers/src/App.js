@@ -3,7 +3,7 @@ import "./App.css";
 import Volunteers from "./Components/Volunteers";
 import ImgMediaCard from "./Components/Card";
 import Header from "./Components/Header";
-import Sessions from "./Components/ShowBookedSession";
+import Sessions from "./Components/NewVolunteer";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import CustomizedMenus from "./Components/ViewOption";

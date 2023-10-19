@@ -88,6 +88,29 @@ app.post("/booking", async (req, res) => {
   }
 });
 
+app.post("/volunteers", function (req, res) {
+  const newName = req.body.name;
+  const newPhone = req.body.phone;
+  const newEmail = req.body.email;
+
+  const query = `INSERT INTO volunteers (name, phone, email) VALUES ($1, $2, $3)`;
+  if (req.body.name && req.body.phone && validator.isEmail(req.body.email)) {
+    db.query(query, [newName, newPhone, newEmail])
+      .then(() => {
+        res.status(200)
+          .json({ status: `registration succesfull` });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json();
+      });
+  } else {
+    res.status(400).json({
+      error: `Please try again`,
+    });
+  }
+});
+
 app.delete("/volunteers/:id", (req, res) => {
   let idToDelete = Number(req.params.id);
   db.query("delete from volunteers where id = $1", [idToDelete])
