@@ -5,9 +5,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import NewVolunteer from "./NewVolunteer";
 
 export default function ImgMediaCard() {
-  return (
+  return (<div>
     <Card  className = "home" id="home" sx={{ maxWidth: 700 }}>
       <CardMedia
         component="img"
@@ -34,5 +35,7 @@ export default function ImgMediaCard() {
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
+    <NewVolunteer />
+    </div>
   );
 }
