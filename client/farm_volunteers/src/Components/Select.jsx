@@ -21,17 +21,17 @@ const ShowSelect = () => {
   return (
    <div>
       {selectValue && (
-        <div className="select-container">
-          <div className=" mt-3 text-center">
+        <div>
+          <div>
             <p>Select your name</p>
           </div>
           <select
             onChange={handleChange}
-            className="form-control form-control-sm mb-3 mt-3 w-50 mx-auto"
+           
           >
             <option value="">Select</option>
-            {volunteers.map((volunteer, index) => (
-              <option key={index} value={volunteer.vol_id}>
+            {volunteers.map((volunteer) => (
+              <option key={volunteer.vol_id} value={volunteer.vol_id}>
                 {volunteer.name}
               </option>
             ))}
