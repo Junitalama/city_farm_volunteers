@@ -61,12 +61,9 @@ app.get("/calendar/:date", async (req, res) => {
 //     .catch((err) => res.send(err));
 // });
 
-
 app.post("/booking", async (req, res) => {
   try {
-    const { ses_id,vol_id } = req.body;
-
-
+    const { ses_id, vol_id } = req.body;
 
     // const sessionExists = await db.query("select * from sessions where ses_id = $1", [ses_id]);
     // console.log("sessions" ,sessionExists);
@@ -77,10 +74,10 @@ app.post("/booking", async (req, res) => {
     //     .json({ message: "Session or volunteer not found" });
     // }
 
-    await db.query(
-      "insert into bookings (ses_id,vol_id) values ($1, $2)",
-      [ ses_id,vol_id]
-    );
+    await db.query("insert into bookings (ses_id,vol_id) values ($1, $2)", [
+      ses_id,
+      vol_id,
+    ]);
     res.status(200).json({ message: "Booking created successfully" });
   } catch (error) {
     console.error(error);
@@ -97,8 +94,7 @@ app.post("/volunteers", function (req, res) {
   if (req.body.name && req.body.phone && validator.isEmail(req.body.email)) {
     db.query(query, [newName, newPhone, newEmail])
       .then(() => {
-        res.status(200)
-          .json({ status: `registration succesfull` });
+        res.status(200).json({ status: `registration succesfull` });
       })
       .catch((err) => {
         console.log(err);
@@ -119,5 +115,3 @@ app.delete("/volunteers/:id", (req, res) => {
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
-
-
