@@ -3,12 +3,12 @@ import "./App.css";
 import Volunteers from "./Components/Volunteers";
 import ImgMediaCard from "./Components/Card";
 import Header from "./Components/Header";
-
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import CustomizedMenus from "./Components/ViewOption";
 import { Switch, Route } from "react-router-dom";
 import BookSession from "./Components/BookSession";
+
 
 
 const Main = () => (
@@ -25,6 +25,8 @@ function App() {
       <Header />
       <CustomizedMenus />
       <Main />
+      
+      
 
       <Contact />
 

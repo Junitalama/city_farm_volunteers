@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CalendarData from "./Calendar";
 
-const Api = "https://city-farms-db.onrender.com/bookings";
+const Api = "https://city-farms-db.onrender.com/booking";
 
 function BookSession() {
   const [session, setSession] = useState([]);

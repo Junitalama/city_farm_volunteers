@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SelectVolunteer from "./Select";
+import BookingForm from "./BookingForm";
 
 
 const Sessions = ({ selectedDate }) => {
@@ -35,7 +36,7 @@ const Sessions = ({ selectedDate }) => {
         <ul>
           {sessions.map((session) => (
             <li key={session.ses_id}>
-              <strong>{new Date(session.date).toLocaleDateString()}</strong>{" "}
+              <strong>{new Date(session.date).toLocaleDateString()}</strong>
               <br /> {session.slot} session is <strong>{session.status}</strong>
               {session.status === "booked" ? (
                 <button
@@ -54,6 +55,7 @@ const Sessions = ({ selectedDate }) => {
           ))}
         </ul>
       )}
+      <BookingForm />
      
     </div>
   );

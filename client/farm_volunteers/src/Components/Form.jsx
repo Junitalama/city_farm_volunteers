@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 
-function BookingForm({ onAdd }) {
+function RegistrationForm({ onAdd }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [error, setError] = useState(null);
+
+  const alertMessage = () => {
+    alert("Booking successful!");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,9 +18,7 @@ function BookingForm({ onAdd }) {
       return;
     }
 
-    
-
-    const newBooking = {
+    const newRegistration = {
       name,
       email,
       phone,
@@ -30,17 +32,18 @@ function BookingForm({ onAdd }) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(newBooking),
+          body: JSON.stringify(newRegistration),
         }
       );
 
       if (response.ok) {
         const data = await response.json();
-        onAdd(newBooking);
+        onAdd(newRegistration);
         setName("");
         setEmail("");
         setPhone("");
         setError(null);
+        alertMessage();
         console.log(data);
       } else {
         setError("Server error. Please try again later.");
@@ -93,4 +96,4 @@ function BookingForm({ onAdd }) {
   );
 }
 
-export default BookingForm;
+export default RegistrationForm;

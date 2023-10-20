@@ -61,29 +61,65 @@ app.get("/calendar/:date", async (req, res) => {
 //     .catch((err) => res.send(err));
 // });
 
+// app.post("/booking", async (req, res) => {
+//   try {
+//     const { ses_id, vol_id } = req.body;
+
+//     const sessionExists = await db.query("select * from sessions where ses_id = $1", [ses_id]);
+//     console.log("sessions" ,sessionExists);
+//     const volunteerExists = await db.query("select * from volunteers where vol_id = $1",[vol_id]);
+//     if (!volunteerExists) {
+//       return res
+//         .status(404)
+//         .json({ message: "Session or volunteer not found" });
+//     }
+
+//     await db.query("insert into bookings (ses_id,vol_id) values ($1, $2)", [
+//       ses_id,
+//       vol_id,
+//     ]);
+//     res.status(200).json({ message: "Booking created successfully" });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: "Error creating booking" });
+//   }
+// });
 app.post("/booking", async (req, res) => {
   try {
     const { ses_id, vol_id } = req.body;
 
-    // const sessionExists = await db.query("select * from sessions where ses_id = $1", [ses_id]);
-    // console.log("sessions" ,sessionExists);
-    // const volunteerExists = await db.query("select * from volunteers where vol_id = $1",[vol_id]);
-    // if (!volunteerExists) {
-    //   return res
-    //     .status(404)
-    //     .json({ message: "Session or volunteer not found" });
-    // }
+    // Check if the session exists
+    const sessionExists = await db.query(
+      "SELECT * FROM sessions WHERE ses_id = $1",
+      [ses_id]
+    );
+    if (sessionExists.rows.length === 0) {
+      return res.status(404).json({ message: "Session not found" });
+    }
 
-    await db.query("insert into bookings (ses_id,vol_id) values ($1, $2)", [
+    // Check if the volunteer exists
+    const volunteerExists = await db.query(
+      "SELECT * FROM volunteers WHERE vol_id = $1",
+      [vol_id]
+    );
+    if (volunteerExists.rows.length === 0) {
+      return res.status(404).json({ message: "Volunteer not found" });
+    }
+
+    // Create the booking
+    await db.query("INSERT INTO bookings (ses_id, vol_id) VALUES ($1, $2)", [
       ses_id,
       vol_id,
     ]);
+
     res.status(200).json({ message: "Booking created successfully" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error creating booking" });
   }
 });
+
+
 
 app.post("/volunteers", function (req, res) {
   const newName = req.body.name;
@@ -102,9 +138,9 @@ app.post("/volunteers", function (req, res) {
     });
 });
 
-app.delete("/volunteers/:id", (req, res) => {
+app.delete("/booking/:id", (req, res) => {
   let idToDelete = Number(req.params.id);
-  db.query("delete from volunteers where id = $1", [idToDelete])
+  db.query("delete from bookings where id = $1", [idToDelete])
     .then(() => res.status(200).json({}))
     .catch((err) => res.send(err));
 });
