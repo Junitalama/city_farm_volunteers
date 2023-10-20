@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SelectVolunteer from "./Select";
-import BookingForm from "./BookingForm";
+
 
 
 const Sessions = ({ selectedDate }) => {
@@ -55,7 +55,7 @@ const Sessions = ({ selectedDate }) => {
           ))}
         </ul>
       )}
-      <BookingForm />
+     
      
     </div>
   );

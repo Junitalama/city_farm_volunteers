@@ -119,8 +119,7 @@ app.post("/booking", async (req, res) => {
   }
 });
 
-
-
+//for new registration
 app.post("/volunteers", function (req, res) {
   const newName = req.body.name;
   const newEmail = req.body.email;

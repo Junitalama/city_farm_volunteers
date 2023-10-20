@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import RegistrationForm from "./Form"; 
-
+import RegistrationForm from "./Form";
 
 const Api = "https://city-farms-db.onrender.com/volunteers";
 
@@ -22,8 +21,8 @@ function NewVolunteer() {
 
   return (
     <div>
-     <RegistrationForm onAdd={handleAdd} />
-     </div>
+      <RegistrationForm onAdd={handleAdd} />
+    </div>
   );
 }
 

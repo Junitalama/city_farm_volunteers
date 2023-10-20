@@ -8,7 +8,7 @@ function CancelBookingButton({ bookingId, onDelete }) {
       if (res.status === 200) {
         onDelete(bookingId);
       }
-    })
+    });
   };
 
   return (

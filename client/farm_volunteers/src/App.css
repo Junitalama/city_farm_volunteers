@@ -86,7 +86,7 @@ a {
   margin-top: 3em;
   border-top: 1px solid black;
 }
-.container{
+.container {
   display: flex;
   flex-direction: column;
 }
@@ -188,16 +188,14 @@ abbr[title] {
 @media only screen and (max-width: 480px) {
   .volunteers {
     display: grid;
-   grid-template-columns: 1fr;
-    
-    
-   
+    grid-template-columns: 1fr;
   }
   .session {
     grid-template-columns: repeat(2, 1fr);
     width: 10em;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 5em;
   }
   .session_info {
     display: grid;

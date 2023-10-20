@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SessionInfo from "./SessionsInfo";
+import BookingList from "./BookingList";
 
 const Api = "https://city-farms-db.onrender.com/volunteers";
 
@@ -36,7 +36,7 @@ function Volunteers() {
           ))}
         </div>
       )}
-      <SessionInfo />
+     <BookingList />
     </div>
   );
 }

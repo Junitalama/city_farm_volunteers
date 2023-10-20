@@ -17,19 +17,6 @@ function BookSession() {
   return (
     <div>
       <CalendarData />
-
-      <div className="session">
-        {session.map((s) => (
-          <li key={s.booking_id}>
-            <div className="card">
-              <p>{s.name}</p>
-
-              <p> {s.email}</p>
-              <p> {s.phone}</p>
-            </div>
-          </li>
-        ))}
-      </div>
     </div>
   );
 }

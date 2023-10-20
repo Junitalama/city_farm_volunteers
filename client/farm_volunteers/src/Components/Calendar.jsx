@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Calendar from "react-calendar";
 import Sessions from "./SessionsInfo";
 
-
 const CalendarData = () => {
   const [date, setDate] = useState(new Date());
 
@@ -21,7 +20,6 @@ const CalendarData = () => {
         <Calendar onChange={setDate} value={date} />
 
         <Sessions selectedDate={formatDate(date)} />
-       
       </div>
     </div>
   );

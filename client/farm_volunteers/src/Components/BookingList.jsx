@@ -16,11 +16,6 @@ function BookingList() {
       .catch((error) => console.error("Error fetching data: ", error));
   }, []);
 
-  const handleAdd = (newBooking) => {
-    newBooking.status = "booked";
-    setSession((prevSession) => [...prevSession, newBooking]);
-  };
-
   const handleDelete = (id) => {
     fetch(`${Api}/${id}`, {
       method: "DELETE",
@@ -39,9 +34,8 @@ function BookingList() {
 
   return (
     <div>
-      
       <Typography variant="h5" gutterBottom>
-        View or Cancel your booking here:
+        Booking List
       </Typography>
 
       <div className="session">
