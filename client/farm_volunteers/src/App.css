@@ -41,9 +41,8 @@ h4 {
   margin-right: auto;
   margin-top: 5em;
 }
-h5 {
-  color: blue;
-}
+.header{background-color: gray;}
+
 .add {
   font-size: 2em;
 }

@@ -22,13 +22,17 @@ app.get("/", (req, res) => {
     .catch((err) => res.send(err));
 });
 
-app.get("/booking", (req, res) => {
+app.get("/bookings", (req, res) => {
   db.query(
-    "select * from bookings join sessions on(bookings.ses_id = sessions.ses_id) join volunteers on(bookings.vol_id = volunteers.vol_id);"
+    "SELECT * FROM bookings JOIN sessions ON bookings.ses_id = sessions.ses_id JOIN volunteers ON bookings.vol_id = volunteers.vol_id;"
   )
     .then((result) => res.json(result.rows))
-    .catch((err) => res.send(err));
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Internal Server Error");
+    });
 });
+
 
 app.get("/volunteers", (req, res) => {
   db.query("select * from volunteers")
