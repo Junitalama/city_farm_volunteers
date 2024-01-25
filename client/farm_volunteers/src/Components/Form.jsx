@@ -55,7 +55,7 @@ function RegistrationForm({ onAdd }) {
 
   return (
     <div>
-      <h3>New volunteers, please register here</h3>
+      <h3>Hello volunteers, please register here</h3>
       <form id="form" onSubmit={handleSubmit}>
         {error && <p className="error-message">{error}</p>}
         <div>
