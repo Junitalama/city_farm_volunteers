@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import RegistrationForm from "./Form";
 
-const Api = "https://city-farms-db.onrender.com/volunteers";
+const Api =
+  "http://ec2-13-43-88-172.eu-west-2.compute.amazonaws.com//volunteers";
 
 function NewVolunteer() {
   const [session, setSession] = useState([]);

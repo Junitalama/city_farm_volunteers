@@ -6,7 +6,7 @@ const SelectVolunteer = () => {
   const [selected, setSelected] = useState("");
 
   useEffect(() => {
-    fetch("https://city-farms-db.onrender.com/booking")
+    fetch("http://ec2-13-43-88-172.eu-west-2.compute.amazonaws.com//booking")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

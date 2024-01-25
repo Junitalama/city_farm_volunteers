@@ -11,7 +11,9 @@ const Sessions = ({ selectedDate }) => {
   console.log(selectedDate);
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://city-farms-db.onrender.com/calendar/${selectedDate}`)
+    fetch(
+      `http://ec2-13-43-88-172.eu-west-2.compute.amazonaws.com//calendar/${selectedDate}`
+    )
       .then((res) => {
         if (res.status >= 200 && res.status <= 299) {
           return res.json();

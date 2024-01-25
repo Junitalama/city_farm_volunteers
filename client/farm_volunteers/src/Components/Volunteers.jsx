@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import BookingList from "./BookingList";
 
-const Api = "https://city-farms-db.onrender.com/volunteers";
+const Api =
+  "http://ec2-13-43-88-172.eu-west-2.compute.amazonaws.com//volunteers";
 
 function Volunteers() {
   const [volunteers, setVolunteers] = useState([]);

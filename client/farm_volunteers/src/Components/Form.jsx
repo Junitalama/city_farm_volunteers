@@ -26,7 +26,7 @@ function RegistrationForm({ onAdd }) {
 
     try {
       const response = await fetch(
-        "https://city-farms-db.onrender.com/volunteers",
+        "http://ec2-13-43-88-172.eu-west-2.compute.amazonaws.com//volunteers",
         {
           method: "POST",
           headers: {
