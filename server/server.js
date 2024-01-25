@@ -3,7 +3,7 @@ dotenv.config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5000;
 const bodyParser = require("body-parser");
 app.use(cors({ AllowedHeaders: ["Content-Type", "Authorization"] }));
 app.use(bodyParser.urlencoded({ extended: false }));
