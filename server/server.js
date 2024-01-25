@@ -5,7 +5,16 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 5000;
 const bodyParser = require("body-parser");
-app.use(cors({ AllowedHeaders: ["Content-Type", "Authorization"] }));
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "http://city-farm.s3-website.eu-west-2.amazonaws.com"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const { Pool } = require("pg");
