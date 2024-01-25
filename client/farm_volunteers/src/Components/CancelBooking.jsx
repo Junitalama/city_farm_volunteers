@@ -3,7 +3,7 @@ import React from "react";
 function CancelBookingButton({ bookingId, onDelete }) {
   const deleteBooking = () => {
     fetch(
-      `http://ec2-13-43-88-172.eu-west-2.compute.amazonaws.com//booking/${bookingId}`,
+      `http://ec2-13-43-88-172.eu-west-2.compute.amazonaws.com//bookings/${bookingId}`,
       {
         method: "DELETE",
       }

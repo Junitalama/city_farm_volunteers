@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import CancelBookingButton from "./CancelBooking";
 
-const Api = "http://ec2-13-43-88-172.eu-west-2.compute.amazonaws.com//booking";
+const Api = "http://ec2-13-43-88-172.eu-west-2.compute.amazonaws.com//bookings";
 
 function BookingList() {
   const [session, setSession] = useState([]);
