@@ -5,7 +5,12 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 5000;
 const bodyParser = require("body-parser");
-app.use(cors({ AllowedHeaders: ["Content-Type", "Authorization"] }));
+app.use(
+  cors({
+    origin: "http://city-farm.s3-website.eu-west-2.amazonaws.com", // Replace with your frontend origin
+    credentials: true, // Allow credentials (cookies, HTTP authentication)
+  })
+);
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const { Pool } = require("pg");

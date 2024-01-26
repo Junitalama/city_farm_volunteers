@@ -6,6 +6,7 @@ function CancelBookingButton({ bookingId, onDelete }) {
       `http://ec2-3-9-146-224.eu-west-2.compute.amazonaws.com:5000//bookings/${bookingId}`,
       {
         method: "DELETE",
+        mode:"cors"
       }
     ).then((res) => {
       if (res.status === 200) {

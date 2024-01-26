@@ -9,7 +9,10 @@ function BookingList() {
   const [session, setSession] = useState([]);
 
   useEffect(() => {
-    fetch(Api)
+    fetch(Api, {
+      method: "GET",
+      mode: "cors",
+    })
       .then((res) => res.json())
       .then((data) => {
         setSession(data);
@@ -20,6 +23,7 @@ function BookingList() {
   const handleDelete = (id) => {
     fetch(`${Api}/${id}`, {
       method: "DELETE",
+      mode:"cors"
     })
       .then(() => {
         setSession((prevBooking) =>
