@@ -13,7 +13,6 @@ Phone VARCHAR);
 CREATE TABLE bookings (
 booking_id SERIAL PRIMARY KEY, ses_id INT REFERENCES sessions(ses_id) NOT NULL, vol_id INT REFERENCES volunteers (vol_id) NOT NULL);
 
-
 INSERT INTO sessions(date, slot, status) VALUES ('2023-11-23', 'evening', 'available');
 
 INSERT INTO sessions(date, slot, status) VALUES ('2023-10-24', 'morning', available');
