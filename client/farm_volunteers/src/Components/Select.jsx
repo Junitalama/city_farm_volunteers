@@ -6,7 +6,9 @@ const SelectVolunteer = () => {
   const [selected, setSelected] = useState("");
 
   useEffect(() => {
-    fetch("http://ec2-13-43-88-172.eu-west-2.compute.amazonaws.com//bookings")
+    fetch(
+      "http://ec2-3-9-146-224.eu-west-2.compute.amazonaws.com:5000//bookings"
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
