@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import RegistrationForm from "./Form";
 
 const Api =
-  "http://ec2-3-9-146-224.eu-west-2.compute.amazonaws.com:5000//volunteers";
+  "http://ec2-3-9-146-224.eu-west-2.compute.amazonaws.com:5000/volunteers";
 
 function NewVolunteer() {
   const [session, setSession] = useState([]);
