@@ -23,7 +23,7 @@ function BookingList() {
   const handleDelete = (id) => {
     fetch(`${Api}/${id}`, {
       method: "DELETE",
-      mode:"cors"
+      mode: "cors",
     })
       .then(() => {
         setSession((prevBooking) =>
