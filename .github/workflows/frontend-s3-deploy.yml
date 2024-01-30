@@ -14,7 +14,7 @@ jobs:
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
-        with: 
+        with:
           node-version: '20'
 
       - name: Install Dependencies 
@@ -24,7 +24,7 @@ jobs:
         run: npm run build
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws_s3_bucket: ${{ secrets.AWS_S3_BUCKET }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
