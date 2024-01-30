@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Calendar from "react-calendar";
 import Sessions from "./SessionsInfo";
 
-const CalendarData = () => {
+const CalendarData = ({ session }) => {
   const [date, setDate] = useState(new Date());
 
   const formatDate = (date) => {
@@ -14,12 +14,25 @@ const CalendarData = () => {
 
   return (
     <div>
-      <h3>Book a session</h3>
+      <h2>Book a Session</h2>
 
-      <div className="row">
-        <Calendar onChange={setDate} value={date} />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+        }}
+      >
+        <div style={{ width: "50%" }}>
+          <h3>Select a Date</h3>
+          <Calendar onChange={setDate} value={date} />
+        </div>
 
-        <Sessions selectedDate={formatDate(date)} />
+        <div style={{ width: "50%" }}>
+          <h3>Sessions for {formatDate(date)}</h3>
+          {/* Pass 'session' data to the Sessions component */}
+          <Sessions selectedDate={formatDate(date)} session={session} />
+        </div>
       </div>
     </div>
   );
