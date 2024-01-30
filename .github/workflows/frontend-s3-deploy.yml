@@ -1,9 +1,9 @@
-name: S3 Deploy
+name: S3 Deployment
 
 on:
   push:
     branches:
-      -aws-s3-with-github
+      - aws-s3-with-github
 
 jobs:
   deploy:
@@ -11,11 +11,11 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./frontend/farm_volunteers
+        working-directory: frontend/farm_volunteers  # Adjusted path
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v2.4.3  # Use the latest version of actions/checkout
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4.0.1
@@ -24,11 +24,11 @@ jobs:
           aws-secret-access-key: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
           aws-region: eu-west-2
 
-      - name: Build application
+      - name: Build Application
         run: |
-          npm install
+          npm ci  # Use npm ci for more deterministic dependency installation
           npm run build
 
-      - name: Sync build folder to S3
+      - name: Sync Build Folder to S3
         run: |
           aws s3 sync build/ s3://city-farm
