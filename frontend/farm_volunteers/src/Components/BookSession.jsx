@@ -8,9 +8,9 @@ function BookSession() {
   const [session, setSession] = useState([]);
 
   useEffect(() => {
-    fetch(Api,{
-       method: 'GET',
-      mode: 'cors',
+    fetch(Api, {
+      method: "GET",
+      mode: "cors",
     })
       .then((res) => res.json())
       .then((data) => {
@@ -18,9 +18,11 @@ function BookSession() {
       })
       .catch((error) => console.error("Error fetching data: ", error));
   }, []);
+
   return (
     <div>
-      <CalendarData />
+      {/* Pass the 'session' data as a prop to the CalendarData component */}
+      <CalendarData session={session} />
     </div>
   );
 }
