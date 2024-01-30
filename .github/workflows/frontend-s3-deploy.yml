@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2  # Use the latest version of actions/checkout
+        uses: actions/checkout@v4.1.1  # Use the latest version of actions/checkout
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4.0.1
