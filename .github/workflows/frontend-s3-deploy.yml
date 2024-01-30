@@ -1,4 +1,4 @@
-name: S3 Deploy
+name: S3 Deployment
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./frontend/farm_volunteers
+        working-directory: ../farm_volunteers
 
     steps:
       - name: Checkout Repository
