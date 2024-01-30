@@ -11,7 +11,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ../farm_volunteers
+        working-directory: ./farm_volunteers
 
     steps:
       - name: Checkout Repository
