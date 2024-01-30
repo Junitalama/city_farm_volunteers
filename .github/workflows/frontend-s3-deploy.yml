@@ -9,7 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    
+    defaults:
+      run:
+        working-directory: farm_volunteers
 
     steps:
       - name: Checkout Repository
