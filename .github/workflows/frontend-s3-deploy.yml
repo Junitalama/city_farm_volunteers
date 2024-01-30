@@ -3,7 +3,7 @@ name: S3 Deployment
 on:
   push:
     branches:
-      - aws-s3-with-github
+      - aws-s3-deploy
 
 jobs:
   deploy:
