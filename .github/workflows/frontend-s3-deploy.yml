@@ -6,6 +6,16 @@ on:
       - main
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@4.4.1
+    - name: Install Dependencies
+      run: npm install
+    - name: Run tests
+      run: npm test
+      
   deploy:
     runs-on: ubuntu-latest
 
