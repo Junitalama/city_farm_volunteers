@@ -5,31 +5,29 @@ on:
     branches:
       - main
 
+deploy:
+  runs-on: ubuntu-latest
 
+  defaults:
+    run:
+      working-directory: ./frontend/farm_volunteers
 
-  deploy:
-    runs-on: ubuntu-latest
+  steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4.1.1
 
-    defaults:
-      run:
-        working-directory: ./frontend/farm_volunteers
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4.0.1
+      with:
+        aws-access-key-id: "${{ secrets.AWS_ACCESS_KEY_ID }}"
+        aws-secret-access-key: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+        aws-region: eu-west-2
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4.1.1
+    - name: Build application
+      run: |
+        npm install
+        npm run build
 
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4.0.1
-        with:
-          aws-access-key-id: "${{ secrets.AWS_ACCESS_KEY_ID }}"
-          aws-secret-access-key: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
-          aws-region: eu-west-2
-
-      - name: Build application
-        run: |
-          npm install
-          npm run build
-
-      - name: Sync build folder to S3
-        run: |
-          aws s3 sync build/ s3://city-farm
+    - name: Sync build folder to S3
+      run: |
+        aws s3 sync build/ s3://city-farm
