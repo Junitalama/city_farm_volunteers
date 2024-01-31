@@ -30,7 +30,7 @@ function NewVolunteer() {
       <h2>Volunteer List</h2>
       <ul>
         {session.map((volunteer) => (
-          <li key={volunteer.id}>{volunteer.name}</li>
+          <li key={volunteer.id}></li>
         ))}
       </ul>
     </div>
