@@ -1,4 +1,4 @@
-name: Push-to-EC2
+name: EC2 deployment
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20' # Adjust the Node.js version to your project requirements
+          node-version: '20' 
 
       - name: Install npm dependencies
         run: npm install
