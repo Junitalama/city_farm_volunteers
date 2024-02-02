@@ -86,7 +86,7 @@ const Sessions = ({ selectedDate }) => {
           },
         }}
       >
-        <h4>please select your name from here and book a session.</h4>
+        <p>please select your name and book a session.</p>
         <SelectVolunteer
           onSelect={(volunteer) => {
             setSelectedVolunteer(volunteer);
