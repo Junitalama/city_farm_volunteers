@@ -42,9 +42,7 @@ const Sessions = ({ selectedDate }) => {
       return;
     }
 
-  
     setShowModal(false);
-    
   };
 
   return (
@@ -93,7 +91,6 @@ const Sessions = ({ selectedDate }) => {
           }}
         />
 
-     
         <button onClick={handleBook}>Confirm Booking</button>
       </Modal>
     </div>
