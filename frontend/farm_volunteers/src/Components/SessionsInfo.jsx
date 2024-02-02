@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import Modal from "react-modal";
 import SelectVolunteer from "./Select";
-
-
 
 const Sessions = ({ selectedDate }) => {
   const [sessions, setSessions] = useState([]);
-  const [showSlot, setShowSlot] = useState(false);
+  const [showSlot, setShowSlot] = useState(null);
+  const [selectedVolunteer, setSelectedVolunteer] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
-  console.log(selectedDate);
   useEffect(() => {
     setIsLoading(true);
     fetch(
@@ -29,10 +29,26 @@ const Sessions = ({ selectedDate }) => {
         setIsLoading(false);
         setSessions(data);
       })
-      .catch((Error) => {
+      .catch((error) => {
         setIsLoading(false);
+        console.error("Error fetching data:", error);
       });
   }, [selectedDate, showSlot]);
+
+  const handleBook = () => {
+    // Check if a volunteer is selected
+    if (!selectedVolunteer) {
+      alert("Please select a volunteer before booking.");
+      return;
+    }
+
+    // Perform the booking logic with selectedVolunteer and showSlot
+    // ...
+
+    // After booking, close the modal and update the UI
+    setShowModal(false);
+    // Update the UI or perform any other necessary actions
+  };
 
   return (
     <div>
@@ -45,24 +61,44 @@ const Sessions = ({ selectedDate }) => {
               <strong>{new Date(session.date).toLocaleDateString()}</strong>
               <br /> {session.slot} session is <strong>{session.status}</strong>
               {session.status === "booked" ? (
-                <button
-                  onClick={() => {
-                    setShowSlot(session.ses_id);
-                  }}
-                >
+                <button onClick={() => setShowSlot(session.ses_id)}>
                   Cancel
                 </button>
-              ) : (<div>
-                <SelectVolunteer />
-                <button>book</button>
+              ) : (
+                <div>
+                  <button onClick={() => setShowModal(true)}>Book</button>
                 </div>
               )}
             </li>
           ))}
         </ul>
       )}
-     
-     
+
+      {/* Modal for selecting volunteer */}
+      <Modal
+        isOpen={showModal}
+        onRequestClose={() => setShowModal(false)}
+        contentLabel="Select Volunteer Modal"
+        style={{
+          overlay: {
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+          },
+          content: {
+            width: "50%",
+            margin: "auto",
+          },
+        }}
+      >
+        {/* Your SelectVolunteer component */}
+        <SelectVolunteer
+          onSelect={(volunteer) => {
+            setSelectedVolunteer(volunteer);
+          }}
+        />
+
+        {/* Confirm booking button */}
+        <button onClick={handleBook}>Confirm Booking</button>
+      </Modal>
     </div>
   );
 };

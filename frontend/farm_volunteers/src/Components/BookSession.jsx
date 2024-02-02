@@ -21,7 +21,6 @@ function BookSession() {
 
   return (
     <div>
-      {/* Pass the 'session' data as a prop to the CalendarData component */}
       <CalendarData session={session} />
     </div>
   );
