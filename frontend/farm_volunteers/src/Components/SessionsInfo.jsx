@@ -81,7 +81,7 @@ const Sessions = ({ selectedDate }) => {
             backgroundColor: "rgba(0, 0, 0, 0.5)",
           },
           content: {
-            width: "50%",
+            width: "30%",
             margin: "auto",
           },
         }}
