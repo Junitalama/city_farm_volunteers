@@ -86,14 +86,14 @@ const Sessions = ({ selectedDate }) => {
           },
         }}
       >
-        {/* Your SelectVolunteer component */}
+        <h1>please select your name from here and book a session.</h1>
         <SelectVolunteer
           onSelect={(volunteer) => {
             setSelectedVolunteer(volunteer);
           }}
         />
 
-        {/* Confirm booking button */}
+     
         <button onClick={handleBook}>Confirm Booking</button>
       </Modal>
     </div>
