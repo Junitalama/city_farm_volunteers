@@ -23,12 +23,12 @@ const CalendarData = ({ session }) => {
           alignItems: "center",
         }}
       >
-        <div>
+        <div style={{ width: "60%" }}>
           <h3>Select a Date</h3>
           <Calendar onChange={setDate} value={date} />
         </div>
 
-        <div>
+        <div style={{ width: "40%" }}>
           <h5>Sessions for {formatDate(date)}</h5>
           {/* Pass 'session' data to the Sessions component */}
           <Sessions selectedDate={formatDate(date)} session={session} />
