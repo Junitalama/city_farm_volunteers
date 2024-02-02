@@ -38,16 +38,13 @@ const Sessions = ({ selectedDate }) => {
   const handleBook = () => {
     // Check if a volunteer is selected
     if (!selectedVolunteer) {
-      alert("Please select a volunteer before booking.");
+      alert(" booking confirmed.");
       return;
     }
 
-    // Perform the booking logic with selectedVolunteer and showSlot
-    // ...
-
-    // After booking, close the modal and update the UI
+  
     setShowModal(false);
-    // Update the UI or perform any other necessary actions
+    
   };
 
   return (
