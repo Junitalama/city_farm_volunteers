@@ -5,7 +5,6 @@ const Api =
   "http://ec2-3-9-146-224.eu-west-2.compute.amazonaws.com:5000/volunteers";
 
 function NewVolunteer() {
-  
   const [session, setSession] = useState([]);
 
   useEffect(() => {
@@ -27,7 +26,7 @@ function NewVolunteer() {
   return (
     <div>
       <RegistrationForm onAdd={handleAdd} />
-      <h2>Volunteer List</h2>
+
       <ul>
         {session.map((volunteer) => (
           <li key={volunteer.id}></li>
