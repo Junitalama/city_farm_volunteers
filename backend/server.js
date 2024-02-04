@@ -95,7 +95,7 @@ app.get("/calendar/:date", async (req, res) => {
 //     res.status(500).json({ message: "Error creating booking" });
 //   }
 // });
-app.post("/booking", async (req, res) => {
+app.post("/bookings", async (req, res) => {
   try {
     const { ses_id, vol_id } = req.body;
 
@@ -148,7 +148,7 @@ app.post("/volunteers", function (req, res) {
     });
 });
 
-app.delete("/booking/:id", (req, res) => {
+app.delete("/bookings/:id", (req, res) => {
   let idToDelete = Number(req.params.id);
   db.query("delete from bookings where id = $1", [idToDelete])
     .then(() => res.status(200).json({}))
