@@ -22,6 +22,7 @@ const db = new Pool({
 app.use(bodyParser.json());
 
 
+
 app.get("/", (req, res) => {
   db.query("select * from sessions")
   
