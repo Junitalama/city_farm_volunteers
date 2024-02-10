@@ -21,9 +21,10 @@ const db = new Pool({
 });
 app.use(bodyParser.json());
 
-
-
 app.get("/", (req, res) => {
+  res.send("hello")})
+
+app.get("/sessions", (req, res) => {
   db.query("select * from sessions")
   
     .then((result) => res.json(result.rows))
