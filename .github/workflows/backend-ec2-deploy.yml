@@ -48,7 +48,7 @@ jobs:
 
     - name: Pull Docker image
       run: |
-        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@3.86.140.155 'sudo docker pull junitalama/my-volunteer-app:latest'
+        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@ip-172-31-24-58 'sudo docker pull junitalama/my-volunteer-app:latest'
 
     - name: Stop running container
       run: |
