@@ -1,4 +1,4 @@
-name: Build on DockerHub & Deploy to Ec2
+name: Build on DockerHub & Deployment to Ec2
 on:
   push:
     branches:
@@ -25,10 +25,10 @@ jobs:
         with:
           context: ./
           push: true
-          dockerfile: ./Dockerfile   # Specify the path to your Dockerfile here
+          dockerfile: ./Dockerfile 
           tags: junitalama/my-volunteer-app:latest
   deploy:
-    needs: build  # Specifies that the `deploy` job depends on the `build` job
+    needs: build  
     runs-on: ubuntu-latest
 
     steps:
