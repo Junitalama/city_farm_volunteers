@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  app:
+    image: junitalama/my-volunteer-app:latest
+    container_name: stupefied_raman
+    restart: always
+    ports:
+      - "5000:5000"
+   
