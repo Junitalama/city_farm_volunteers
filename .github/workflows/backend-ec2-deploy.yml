@@ -1,4 +1,4 @@
-name: Build on DockerHub & Deploy to Ec2
+name: Build on DockerHub & Deployment to Ec2
 on:
   push:
     branches:
