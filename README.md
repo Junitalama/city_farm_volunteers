@@ -1,7 +1,7 @@
 # city_farm_volunteers
 backend: http://ec2-3-9-146-224.eu-west-2.compute.amazonaws.com:5000
 
-frontend:http://city-farm.s3-website.eu-west-2.amazonaws.com
+frontend:http://farmcity.s3-website.eu-west-2.amazonaws.com/
 
  An app where volunteers can select a session in a calendar and book an available slot. 
 
