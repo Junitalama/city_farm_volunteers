@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 resource "aws_db_instance" "junita" {
-  # Placeholder values, replace them with your RDS configuration
+  
   identifier            = "junita"
   allocated_storage     = 20 
   engine                = "postgres"
