@@ -13,19 +13,45 @@ Phone VARCHAR);
 CREATE TABLE bookings (
 booking_id SERIAL PRIMARY KEY, ses_id INT REFERENCES sessions(ses_id) NOT NULL, vol_id INT REFERENCES volunteers (vol_id) NOT NULL);
 
-INSERT INTO sessions(date, slot, status) VALUES ('2023-11-23', 'evening', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-02-23', 'evening', 'available');
 
-INSERT INTO sessions(date, slot, status) VALUES ('2023-10-24', 'morning', available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-02-23', 'morning', available');
 
-INSERT INTO sessions(date, slot, status) VALUES ('2023-09-24', 'evening', booked');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-02-24', 'evening', booked');
 
-INSERT INTO sessions(date, slot, status) VALUES ('2023-09-27', 'morning','canceled');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-02-24', 'morning','canceled');
 
-INSERT INTO sessions(date, slot, status) VALUES ('2023-09-28', 'evening', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-02-25', 'evening', 'available');
 
-INSERT INTO sessions(date,slot, status) VALUES ('2023-09-29', 'evening', 'booked');
+INSERT INTO sessions(date,slot, status) VALUES ('2024-02-25', 'morning', 'booked');
 
-INSERT INTO sessions(date, slot, status) VALUES ('2023-10-29','morning', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-02-26','morning', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-02-26','evening', 'booked');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-02-27','morning', 'booked');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-02-27','evening', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-02-28','morning', 'booked');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-02-28','evening', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-01','morning', 'booked');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-01','evening', 'booked');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-02','morning', 'booked');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-02','evening', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-03','morning', 'booked');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-03','evening', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-04','morning', 'booked');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-04','evening', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-05','morning', 'booked');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-05','evening', 'canceled');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-06','morning', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-06','evening', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-07','morning', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-07','evening', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-08','morning', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-08','evening', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-09','morning', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-09','evening', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-10','morning', 'available');
+INSERT INTO sessions(date, slot, status) VALUES ('2024-03-10','evening', 'boooked');
+
 
 
 INSERT INTO volunteers(name, email,phone) VALUES ( 'Afsha Hossain', 'afsha@yahoo.com', '07562221333');
