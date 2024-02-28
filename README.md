@@ -1,5 +1,5 @@
 # city_farm_volunteers
-backend: http://ec2-3-9-146-224.eu-west-2.compute.amazonaws.com:5000
+backend: http://ec2-13-40-132-100.eu-west-2.compute.amazonaws.com:5000/
 
 frontend:http://farmcity.s3-website.eu-west-2.amazonaws.com/
 
