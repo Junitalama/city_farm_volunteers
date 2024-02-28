@@ -58,7 +58,7 @@ resource "aws_instance" "city_farm" {
     Name = "farm-city-volunteers"
   }
 
-  provisioner "remote-exec" {
+  provisioner "remote" {
     connection {
       type        = "ssh"
       user        = "ubuntu"  
