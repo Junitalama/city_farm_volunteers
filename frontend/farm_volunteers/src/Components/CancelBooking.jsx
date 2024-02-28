@@ -3,7 +3,7 @@
 function CancelBookingButton({ bookingId, onDelete }) {
   const deleteBooking = () => {
     fetch(
-      `http://ec2-3-9-146-224.eu-west-2.compute.amazonaws.com:5000/bookings/${bookingId}`,
+      `http://ec2-13-40-132-100.eu-west-2.compute.amazonaws.com:5000/bookings/${bookingId}`,
       {
         method: "DELETE",
         mode: "cors",

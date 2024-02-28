@@ -26,10 +26,10 @@ function RegistrationForm({ onAdd }) {
 
     try {
       const response = await fetch(
-        "http://ec2-3-9-146-224.eu-west-2.compute.amazonaws.com:5000/volunteers",
+        "http://ec2-13-40-132-100.eu-west-2.compute.amazonaws.com:5000/volunteers",
         {
           method: "POST",
-          mode:"cors",
+          mode: "cors",
           headers: {
             "Content-Type": "application/json",
           },

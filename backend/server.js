@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000;
 const bodyParser = require("body-parser");
 app.use(
   cors({
-    origin: "http://city-farm.s3-website.eu-west-2.amazonaws.com", // Replace with your frontend origin
+    origin: "http://farmcity.s3-website.eu-west-2.amazonaws.com", // Replace with your frontend origin
     credentials: true, // Allow credentials (cookies, HTTP authentication)
   })
 );

@@ -12,7 +12,7 @@ const Sessions = ({ selectedDate }) => {
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      `http://ec2-3-9-146-224.eu-west-2.compute.amazonaws.com:5000/calendar/${selectedDate}`,
+      `http://ec2-13-40-132-100.eu-west-2.compute.amazonaws.com:5000/calendar/${selectedDate}`,
       {
         method: "GET",
         mode: "cors",

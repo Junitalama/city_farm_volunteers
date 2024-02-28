@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import CancelBookingButton from "./CancelBooking";
 
 const Api =
-  "http://ec2-3-9-146-224.eu-west-2.compute.amazonaws.com:5000/bookings";
+  "http://ec2-13-40-132-100.eu-west-2.compute.amazonaws.com:5000/bookings";
 
 function BookingList() {
   const [session, setSession] = useState([]);

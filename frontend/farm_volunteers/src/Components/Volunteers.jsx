@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BookingList from "./BookingList";
 
 const Api =
-  "http://ec2-3-9-146-224.eu-west-2.compute.amazonaws.com:5000/volunteers";
+  "http://ec2-13-40-132-100.eu-west-2.compute.amazonaws.com:5000/volunteers";
 
 function Volunteers() {
   const [volunteers, setVolunteers] = useState([]);
