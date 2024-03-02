@@ -1,4 +1,4 @@
-name: 'Terraform'
+name: S3 Deployment
 
 on:
   push:
@@ -6,34 +6,29 @@ on:
       - main
 
 jobs:
-  terraform:
-    name: 'Terraform'
+  deploy:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./frontend/farm_volunteers
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v4.1.1
 
-    - name: Set up Terraform
-      uses: hashicorp/setup-terraform@v1
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4.0.1
+        with:
+          aws-access-key-id: "${{ secrets.AWS_ACCESS_KEY_ID }}"
+          aws-secret-access-key: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+          aws-region: eu-west-2
 
-    - name: Terraform Initialize
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform init
+      - name: Build application
+        run: |
+          npm install
+          npm run build
 
-    - name: Terraform Validate
-      run: terraform validate
-
-    - name: Terraform Plan
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform plan
-
-    - name: Terraform Apply
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform apply -auto-approve
+      - name: Sync build folder to S3
+        run: |
+          aws s3 sync build/ s3://farmcity
