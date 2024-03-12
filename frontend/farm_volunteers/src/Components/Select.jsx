@@ -7,7 +7,7 @@ const SelectVolunteer = () => {
 
   useEffect(() => {
     fetch(
-      "http://ec2-13-40-132-100.eu-west-2.compute.amazonaws.com:5000//bookings",
+      "http://ec2-13-40-132-100.eu-west-2.compute.amazonaws.com:5000/bookings",
       {
         method: "GET",
         mode: "cors",
